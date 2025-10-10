@@ -1,1 +1,28 @@
+#feature_3.feature_card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+#feature_3 h1,
+#feature_3 h2,
+#feature_3 h3,
+#feature_3 h4,
+#feature_3 h5,
+#feature_3 h6 {
+  font-size: 1.1rem;
+  line-height: 1.25;
+  margin: 0 0 0.5rem 0;
+}
+
+#feature_3 ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+#feature_3 li {
+  margin: 0.4rem 0;
+}
+
 
