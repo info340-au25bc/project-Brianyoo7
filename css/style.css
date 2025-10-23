@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: blueviolet;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+}
+
+nav img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding-right: 1rem;
+}
+
+nav li {
+    margin: 0.5rem 0.5rem
+}
+
+nav a {
+  text-decoration: none;
+  color: aliceblue;
+  font-size:larger;
+}
+
+nav a:hover {
+    transition: ease-out .25s;
+    color: #00f5ff;
+    border-bottom: #f0f0f0 .8rem solid;
+}
+
+header {
+    margin-top: 100px;
+    background-image: url("../images/app-homepage-background.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 150px;
+    padding: 0.5rem;
+}
+
+main {
+    background-color: antiquewhite;
+}
+
+.main-feed h2 {
+    margin-top: 0;
+    font-size: xx-large;
+    padding: 1.5rem;
+}
+
+.posts-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+}
+
+.post {
+    background-color: white;
+    width: 90%;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.post .post-image {
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.post .post-title {
+    font-weight: bold;
+}
+
+footer {
+    height: 5rem;
+    background-color: blueviolet;
+    padding-left: 0.5rem;
+}
+
+footer .author {
+    margin-top: 0;
+    padding-top: 0.5rem;
+}
+
+footer address {
+    display: inline-block;
+}
+
+@media (min-width: 1200px) {
+    .posts-layout {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 1rem, 0.5rem;
+    }
+
+    .post {
+        flex: 0 0 calc(31.8% - 2rem);
+        margin: 1rem;
+    }
+}
