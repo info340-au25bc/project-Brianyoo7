@@ -57,7 +57,7 @@ header {
     background-image: url("../images/app-homepage-background.jpg");
     background-size: cover;
     background-position: center;
-    min-height: 150px;
+    height: 250px;
     padding: 0.5rem;
 }
 
@@ -67,7 +67,7 @@ main {
 
 .main-feed h2 {
     margin-top: 0;
-    font-size: xx-large;
+    font-size: 3rem;
     padding: 1.5rem;
 }
 
@@ -76,7 +76,7 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    padding: 2rem 1rem;
+    margin-top: 0;
 }
 
 .post {
@@ -98,7 +98,7 @@ main {
 }
 
 footer {
-    height: 5rem;
+    height: 10rem;
     background-color: blueviolet;
     padding-left: 0.5rem;
 }
@@ -112,7 +112,41 @@ footer address {
     display: inline-block;
 }
 
+footer a:hover {
+    color:#00f5ff;
+}
+
 @media (min-width: 1200px) {
+
+    header {
+        min-height: 400px;
+    }
+
+    header h1 {
+        font-size: 4rem;
+    }
+
+    header p {
+        font-size: 2.5rem;
+    }
+
+    nav {
+        padding: 1rem 3rem; 
+        height: 150px;
+    }
+
+    nav ul {
+        padding-bottom: 1rem;
+    }
+
+    nav li {
+        font-size: 2rem;
+    }
+    
+    .main-feed h2 {
+        font-size: 4rem;
+    }
+
     .posts-layout {
         flex-direction: row;
         flex-wrap: wrap;
@@ -123,4 +157,14 @@ footer address {
         flex: 0 0 calc(31.8% - 2rem);
         margin: 1rem;
     }
+
+    .post-title {
+        font-size: 2rem;
+    }
+
+    footer {
+        padding: 1.5rem 3rem;
+        font-size: 2rem;
+    }
+
 }
