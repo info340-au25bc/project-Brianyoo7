@@ -17,7 +17,7 @@ nav {
     left: 0;
     width: 100%;
     height: 70px;
-    background-color: rgb(80, 33, 124);
+    background-color: rgb(158, 79, 237);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -58,7 +58,7 @@ nav a:hover {
 
 /* Styling for the main feed header */
 .main-feed-header {
-    margin-top: 100px;
+    margin-top: 60px;
     background-image: url("../images/app-homepage-background.jpg");
     background-size: cover;
     background-position: center;
@@ -67,23 +67,6 @@ nav a:hover {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-}
-
-header div {
-    padding: 1.5rem;
-    border-radius: 8px;
-}
-
-header h1 {
-    color: black;
-    margin: 0 0 0.5rem 0;
-    font-size: 2.5rem;
-}
-
-header p {
-    color: black;
-    margin: 0;
-    font-size: 0.5rem;
 }
 
 /* Styling for the posts layout */
@@ -144,7 +127,7 @@ main {
 
 /* Styling for the post creation header */
 .post-creation-header {
-    margin-top: 100px;
+    margin-top: 60px;
     background-image: url("../images/app-homepage-background.jpg");
     background-size: cover;
     background-position: center;
@@ -254,7 +237,7 @@ footer a:hover {
     }
 
     .main-feed-header, .post-creation-header h1 {
-        padding-top: 1.5rem;
+        padding-top: 2rem;
         font-size: 4rem;
     }
 
@@ -266,19 +249,24 @@ footer a:hover {
     nav {
         padding: 1rem 3rem; 
         height: 150px;
+        font-size: 4rem;
     }
 
     nav ul {
         padding-bottom: 1rem;
     }
 
-    nav li {
-        font-size: 2rem;
+    nav a {
+        font-size: 3rem;
     }
     
     /* Styling for the posts layout */
     .main-feed h2 {
         font-size: 4rem;
+    }
+
+    .lead-in {
+        font-size: 2.5rem;
     }
 
     .posts-layout {
@@ -309,7 +297,7 @@ footer a:hover {
     }
 
     .post-creation-header {
-        margin-top: 150px;
+        margin-top: 120px;
     }
     
     .button-group {
