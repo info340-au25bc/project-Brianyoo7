@@ -26,7 +26,7 @@ nav {
 }
 
 nav img {
-    height: 80%;
+    height: 70%;
     width: auto;
     object-fit: contain;
     mix-blend-mode: multiply;
@@ -41,7 +41,7 @@ nav ul {
 }
 
 nav li {
-    margin: 0;
+    margin: 0.5rem 0.5rem
 }
 
 nav a {
@@ -89,9 +89,12 @@ header p {
 /* Styling for the posts layout */
 main {
     background-color: rgb(255, 236, 212);
-
+    padding-bottom: 2rem;
 }
 
+.main-feed {
+    padding: 0 1.5rem;
+}
 
 .main-feed h2 {
     margin-top: 0;
