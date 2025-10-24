@@ -1,3 +1,4 @@
+/* General Padding for the page */
 * {
     box-sizing: border-box;
 }
@@ -9,6 +10,7 @@ body {
     padding: 0;
 }
 
+/* Styling for the nav bar */
 nav {
     position: fixed;
     top: 0;
@@ -36,7 +38,6 @@ nav ul {
     padding-right: 0;
     margin: 0;
     gap: 2rem;
-
 }
 
 nav li {
@@ -55,6 +56,7 @@ nav a:hover {
     border-bottom: #f0f0f0 0.3rem solid;
 }
 
+/* Styling for the header */
 header {
     margin-top: 70px;
     background-image: url("../images/app-homepage-background.jpg");
@@ -84,13 +86,12 @@ header p {
     font-size: 0.5rem;
 }
 
+/* Styling for the posts layout */
 main {
     background-color: rgb(255, 236, 212);
+
 }
 
-.main-feed {
-    padding: 0 1.5rem;
-}
 
 .main-feed h2 {
     margin-top: 0;
@@ -106,6 +107,7 @@ main {
     margin-top: 0;
 }
 
+/* Styling for the individual post */
 .post {
     background-color: white;
     width: 90%;
@@ -114,19 +116,33 @@ main {
     margin-bottom: 1rem;
 }
 
-.post .post-image {
+.post-image-container {
     width: 100%;
-    height: 80%;
+    height: 200px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.post-image {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+    display: block;
 }
 
-.post .post-title {
+.post-title {
     font-weight: bold;
+    margin-top: 1rem;
 }
 
+/* Styling for the footer */
 footer {
     height: 10rem;
-    background-color: blueviolet;
+    background-color: rgb(158, 79, 237);
     padding-left: 0.5rem;
 }
 
@@ -139,17 +155,25 @@ footer address {
     display: inline-block;
 }
 
+footer a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
 footer a:hover {
     color:#00f5ff;
 }
 
+/* Responsive Design for the large screen */
 @media (min-width: 1200px) {
 
+    /* Styling for the header */
     header {
-        min-height: 400px;
+        height: 400px;
     }
 
     header h1 {
+        padding-top: 1.5rem;
         font-size: 4rem;
     }
 
@@ -157,6 +181,7 @@ footer a:hover {
         font-size: 2.5rem;
     }
 
+    /* Styling for the nav bar */
     nav {
         padding: 1rem 3rem; 
         height: 150px;
@@ -170,6 +195,7 @@ footer a:hover {
         font-size: 2rem;
     }
     
+    /* Styling for the posts layout */
     .main-feed h2 {
         font-size: 4rem;
     }
@@ -177,7 +203,9 @@ footer a:hover {
     .posts-layout {
         flex-direction: row;
         flex-wrap: wrap;
-        padding: 1rem, 0.5rem;
+        padding: 2rem 1rem;
+        justify-content: center;
+        margin: 0 auto;
     }
 
     .post {
@@ -189,6 +217,11 @@ footer a:hover {
         font-size: 2rem;
     }
 
+    .post-image {
+        height: 250px;
+    }
+
+    /* Styling for the footer */
     footer {
         padding: 1.5rem 3rem;
         font-size: 2rem;
