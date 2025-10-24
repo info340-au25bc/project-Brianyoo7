@@ -56,17 +56,21 @@ nav a:hover {
     border-bottom: #f0f0f0 0.3rem solid;
 }
 
-/* Styling for the main feed header */
-.main-feed-header {
+/* Base Style for the header */
+.base-header-style {
     margin-top: 60px;
     background-image: url("../images/app-homepage-background.jpg");
     background-size: cover;
     background-position: center;
-    height: 250px;
     padding: 2rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+
+/* Styling for the main feed header */
+.main-feed-header {
+    height: 250px;
 }
 
 /* Styling for the posts layout */
@@ -127,12 +131,7 @@ main {
 
 /* Styling for the post creation header */
 .post-creation-header {
-    margin-top: 60px;
-    background-image: url("../images/app-homepage-background.jpg");
-    background-size: cover;
-    background-position: center;
     height: 150px;
-    padding: 0.5rem;
 }
 
 /* Styling for the post creation form */
@@ -203,6 +202,67 @@ main {
     width: 100%;
 }
 
+/* Styling for the post detail page header */
+.post-card-header {
+    height: 150px;
+}
+
+/* Styling for the post detail page layout */
+.post-detail-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.post-detail-title {
+    margin-top: 0;
+    padding: 1.5rem;
+}
+
+.post-detail-description {
+    text-align: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.base-column-style {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-column-1 {
+    align-items: center;
+}
+
+.card-column-2 {
+    align-items: flex-start;
+    padding-left: 3rem;
+    gap: 1rem;
+}
+
+.detail-image {
+    object-fit: contain;
+    width: 70%;
+    height: 70%;
+}
+
+.like-section {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.like-btn-style {
+    font-size: 3rem;
+    background-color: rgb(255, 236, 212);
+    border: none;
+    vertical-align: middle;
+    margin-top: -15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+
 /* Styling for the footer */
 footer {
     height: 10rem;
@@ -232,16 +292,16 @@ footer a:hover {
 @media (min-width: 1200px) {
 
     /* Styling for the header */
-    .main-feed-header, .post-creation-header {
+    .base-header-style {
         height: 400px;
     }
 
-    .main-feed-header, .post-creation-header h1 {
+    .base-header-style h1 {
         padding-top: 2rem;
         font-size: 4rem;
     }
-
-    .main-feed-header, .post-creation-header p {
+    
+    .base-header-style p {
         font-size: 2.5rem;
     }
 
@@ -290,6 +350,7 @@ footer a:hover {
         height: 250px;
     }
 
+     /* Styling for the posts submission form */
     .post-creation-form {
         flex-direction: row;
         max-width: 1200px;
@@ -310,6 +371,25 @@ footer a:hover {
     .submit-btn,
     .discard-btn {
         width: auto;
+    }
+
+    /* Styling for the post detail page layout */
+    .post-card-header {
+        height: 300px;
+        padding: 1rem;
+    }
+
+    .post-detail-layout {
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .card-column-1 {
+        flex: 0 0 66.66666%;
+    }
+
+    .card-column-2 {
+        flex: 0 0 33.33333%;
     }
 
     /* Styling for the footer */
