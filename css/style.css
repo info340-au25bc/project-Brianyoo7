@@ -16,17 +16,17 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100px;
-    background-color: rgb(158, 79, 237);
+    height: 70px;
+    background-color: rgb(80, 33, 124);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
 }
 
 nav img {
-    height: 100%;
+    height: 70%;
     width: auto;
     object-fit: contain;
     mix-blend-mode: multiply;
@@ -35,40 +35,65 @@ nav img {
 nav ul {
     display: flex;
     list-style: none;
-    padding-right: 1rem;
+    padding-right: 0;
     margin: 0;
+    gap: 2rem;
 }
 
 nav li {
-    margin: 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem
 }
 
 nav a {
   text-decoration: none;
   color: aliceblue;
-  font-size:larger;
+  font-size: 1rem;
 }
 
 nav a:hover {
     transition: ease-out .25s;
     color: #00f5ff;
-    border-bottom: #f0f0f0 .8rem solid;
+    border-bottom: #f0f0f0 0.3rem solid;
 }
 
 /* Styling for the header */
 header {
-    margin-top: 100px;
+    margin-top: 70px;
     background-image: url("../images/app-homepage-background.jpg");
     background-size: cover;
     background-position: center;
     height: 250px;
-    padding: 0.5rem;
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+header div {
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+header h1 {
+    color: black;
+    margin: 0 0 0.5rem 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    color: black;
+    margin: 0;
+    font-size: 0.5rem;
 }
 
 /* Styling for the posts layout */
 main {
     background-color: rgb(255, 236, 212);
     padding-bottom: 2rem;
+}
+
+.main-feed {
+    padding: 0 1.5rem;
 }
 
 .main-feed h2 {
