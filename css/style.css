@@ -15,7 +15,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100px;
-    background-color: blueviolet;
+    background-color: rgb(80, 33, 124);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -62,7 +62,7 @@ header {
 }
 
 main {
-    background-color: antiquewhite;
+    background-color: rgb(255, 236, 212);
 }
 
 .main-feed h2 {
