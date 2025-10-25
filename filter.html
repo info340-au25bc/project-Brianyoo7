@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Your Name">
+  <meta name="description" content="Filter posts by field, transition type, and date">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Filter Posts</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <nav>
+    <img src="images/app-logo.jpg" alt="Blogging App Logo">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li aria-current="page"><a href="filter.html">Filter Posts</a></li>
+    </ul>
+  </nav>
+
+  <header class="base-header-style filter-header">
+    <div>
+      <h1>Filter Posts</h1>
+      <p class="lead-in">Narrow the feed by career field, transition type, and date.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="filter-card">
+      <h2>Filters</h2>
+
+      <form action="#" method="get" class="filter-form">
+        <!-- Career field -->
+        <fieldset>
+          <legend>Career Field</legend>
+          <label for="careerField" class="input-label">Field</label>
+          <input id="careerField" name="careerField" type="text" placeholder="e.g., Tech, Healthcare, Creative">
+        </fieldset>
+
+        <!-- Transition type -->
+        <fieldset>
+          <legend>Transition Type</legend>
+          <div class="choice-row">
+            <label class="chip"><input type="checkbox" name="transition" value="switch"> Career Switch</label>
+            <label class="chip"><input type="checkbox" name="transition" value="skill"> Skill Building</label>
+            <label class="chip"><input type="checkbox" name="transition" value="first"> First Job</label>
+            <label class="chip"><input type="checkbox" name="transition" value="return"> Return to Work</label>
+          </div>
+        </fieldset>
+
+        <!-- Date range -->
+        <fieldset>
+          <legend>Date Range</legend>
+          <div class="row">
+            <div class="col">
+              <label for="startDate" class="input-label">From</label>
+              <input id="startDate" name="startDate" type="date">
+            </div>
+            <div class="col">
+              <label for="endDate" class="input-label">To</label>
+              <input id="endDate" name="endDate" type="date">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button type="submit" class="btn primary">Apply Filters</button>
+          <button type="reset" class="btn ghost">Clear</button>
+          <a class="btn secondary" href="collection-select.html">Save Filter Set</a>
+        </div>
+      </form>
+    </section>
+
+    <!-- simple placeholder for filtered results -->
+    <section class="results-card">
+      <h2>Results</h2>
+      <p class="muted">Filtered posts will appear here in the full build.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p class="author">© 2025 CareerPivot Team. All rights reserved.</p>
+  </footer>
+</body>
+</html>
