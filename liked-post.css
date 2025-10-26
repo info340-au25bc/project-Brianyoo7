@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling for the nav bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(158, 79, 237);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+}
+
+nav img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding-right: 0;
+    margin: 0;
+    gap: 2rem;
+}
+
+nav li {
+    margin: 0.5rem 0.5rem
+}
+
+nav a {
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 1rem;
+}
+
+nav a:hover {
+    transition: ease-out .25s;
+    color: #00f5ff;
+    border-bottom: #f0f0f0 0.3rem solid;
+}
+
+/* Styling for the footer */
+footer {
+    height: 10rem;
+    background-color: rgb(158, 79, 237);
+    padding-left: 0.5rem;
+}
+
+footer .author {
+    margin-top: 0;
+    padding-top: 0.5rem;
+}
+
+footer address {
+    display: inline-block;
+}
+
+footer a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color:#00f5ff;
+}
+
+/* Responsive Design for the large screen */
+@media (min-width: 1200px) {
+
+    /* Styling for the header */
+    .base-header-style {
+        height: 400px;
+    }
+
+    .base-header-style h1 {
+        padding-top: 2rem;
+        font-size: 4rem;
+    }
+    
+    .base-header-style p {
+        font-size: 2.5rem;
+    }
+
+    /* Styling for the nav bar */
+    nav {
+        padding: 1rem 3rem; 
+        height: 150px;
+        font-size: 4rem;
+    }
+
+    nav ul {
+        padding-bottom: 1rem;
+    }
+
+    nav a {
+        font-size: 3rem;
+    }
+
+        /* Styling for the footer */
+    footer {
+        padding: 1.5rem 3rem;
+        font-size: 2rem;
+    }
+
+/* Main section styling */
+.liked-posts-main {
+    background-color: rgb(204, 235, 197);
+    min-height: 100vh;
+    padding-top: 70px;
+}
+
+.liked-posts-section {
+    padding: 2rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.liked-posts-page-title {
+    font-size: 3rem;
+    color: #000;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+/* Grid layout for liked posts */
+.liked-posts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Individual liked post card */
+.liked-post-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.liked-card-image-container {
+    width: 100%;
+    height: 200px;
+    background-color: #d3d3d3;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.liked-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.liked-card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* View More Button */
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.view-more-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    transition: transform 0.2s ease;
+}
+
+.view-more-btn:hover {
+    transform: scale(1.05);
+}
+
+.arrow-down {
+    font-size: 1rem;
+}
+
+/* Responsive Design for tablets */
+@media (min-width: 768px) {
+    .liked-posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .liked-card-image-container {
+        height: 220px;
+    }
+
+    .liked-card-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Responsive Design for large screens */
+@media (min-width: 1200px) {
+    .liked-posts-main {
+        padding-top: 150px;
+    }
+
+    .liked-posts-page-title {
+        font-size: 4rem;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .liked-posts-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
+
+    .liked-post-card {
+        padding: 1.5rem;
+    }
+
+    .liked-card-image-container {
+        height: 250px;
+    }
+
+    .liked-card-title {
+        font-size: 1.3rem;
+    }
+
+    .view-more-btn {
+        font-size: 1.5rem;
+    }
+
+    .arrow-down {
+        font-size: 1.2rem;
+    }
+}
+}
