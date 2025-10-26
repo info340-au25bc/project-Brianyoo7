@@ -262,6 +262,131 @@ main {
     transition: transform 0.2s ease;
 }
 
+/* Styling for the liked-pages */
+
+.liked-posts-main {
+    background-color: rgb(204, 235, 197);
+    padding-bottom: 2rem;
+    padding-top: 70px;
+}
+
+.liked-posts-section {
+    padding: 0 1.5rem;
+}
+
+.liked-posts-page-title {
+    margin-top: 0;
+    font-size: 3rem;
+    padding: 1.5rem;
+    font-weight: bold;
+}
+
+/* Grid layout for liked posts */
+.liked-posts-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 0;
+}
+
+/* Individual liked post card */
+.liked-post-card {
+    background-color: white;
+    width: 90%;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.liked-card-image-container {
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.liked-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.liked-card-title {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* View More Button */
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.view-more-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.arrow-down {
+    font-size: 1rem;
+}
+
+/* Responsive Design for large screen */
+@media (min-width: 1200px) {
+    
+    .liked-posts-main {
+        padding-top: 150px;
+    }
+
+    .liked-posts-page-title {
+        font-size: 4rem;
+    }
+
+    .liked-posts-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 2rem 1rem;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .liked-post-card {
+        flex: 0 0 calc(31.8% - 2rem);
+        margin: 1rem;
+    }
+
+    .liked-card-title {
+        font-size: 2rem;
+    }
+
+    .liked-card-image-container {
+        height: 250px;
+    }
+
+    .view-more-btn {
+        font-size: 1.5rem;
+    }
+
+    .arrow-down {
+        font-size: 1.2rem;
+    }
+}
 
 /* Styling for the footer */
 footer {
