@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Select Collections</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <nav>
+    <img src="images/app-logo.jpg" alt="Blogging App Logo">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="filter.html">Filter Posts</a></li>
+    </ul>
+  </nav>
+
+  <header class="base-header-style post-card-header">
+    <div>
+      <h1>Save to Collections</h1>
+      <p>Choose existing folders or make a new one.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="collection-card">
+      <h2>My Collections</h2>
+
+      <form action="#" method="post" class="collection-form">
+        <!-- Existing collections -->
+        <fieldset>
+          <legend>Select existing</legend>
+          <ul class="collection-list">
+            <li class="collection-item">
+              <label><input type="checkbox" name="collections" value="frontend-roadmap"> Frontend Roadmap</label>
+            </li>
+            <li class="collection-item">
+              <label><input type="checkbox" name="collections" value="usa"> USA</label>
+            </li>
+            <li class="collection-item">
+              <label><input type="checkbox" name="collections" value="interview-prep"> Interview Prep</label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <!-- Create new -->
+        <fieldset>
+          <legend>Create new</legend>
+          <div class="row">
+            <div class="col">
+              <label for="newCollection" class="input-label">Collection Name</label>
+              <input id="newCollection" name="newCollection" type="text" placeholder="e.g., UX Design Inspiration">
+            </div>
+            <div class="col align-end">
+              <button type="button" class="btn secondary">Create</button>
+            </div>
+          </div>
+          <p class="muted">Creation is just a placeholder for now (hook up later).</p>
+        </fieldset>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button type="submit" class="btn primary">Save</button>
+          <a class="btn ghost" href="index.html">Cancel</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p class="author">© 2025 CareerPivot Team. All rights reserved.</p>
+  </footer>
+</body>
+</html>
