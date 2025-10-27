@@ -557,4 +557,12 @@ footer a:hover {
         font-size: 2rem;
     }
 
+    .collection-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 0;
+}
+
 }
