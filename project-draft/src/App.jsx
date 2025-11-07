@@ -1,0 +1,1 @@
+const element = <h1>Career Pivot</h1>;
