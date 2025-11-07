@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Tresan Alcorta, Lunjia Dai, Brian Yoo, Rui Wang"> 
+    <meta name="description" content="Proposal for INFO 340 group project">
+    <title>Project Proposal</title>
+    <link rel="stylesheet" href="proposal.css">
+</head>
+
+<body>
+    <header>
+        <h1>Career Changers Hub - Project Proposal</h1>
+    </header>
+
+    <main>
+        <!-- Problem/Data Domain -->
+        <section>
+            <h2>Problem/Data Domain</h2>
+            <p>Changing careers is really hard, and one of the biggest challenges is finding good information about what
+                the process actually looks like. The problem is that people who want to change careers can't easily find
+                detailed and honest accounts from others who've done it. Stories that talk about what failed, what worked,
+                how long things took, and what it actually felt like are often not readily accessible. Existing solutions
+                fall short in different ways. LinkedIn emphasizes polished success stories but falls short in documenting
+                the learning journey. Reddit's r/careerguidance has helpful advice, but it's mostly short comments scattered
+                across threads. Blind has mostly become an echo chamber of career negativity and offers no real career changing
+                advice. Career changers need a dedicated ,all in one platform where they can share detailed transition stories,
+                discover experiences from others in similar situations, and organize helpful resources. </p>
+            
+             <!-- Links to other resources to clarify the explanation of the problem described below -->
+            <a href="https://guides.lib.uw.edu/research/govpubs-quick-links/labor">UW Libraries — Government Sources: Employment & Labor</a>
+            <a href="https://guides.lib.uw.edu/c.php?g=1397672&p=10343284">UW Libraries — Job Search Platforms (Handshake, etc.)</a>
+
+        </section>
+
+        <!-- App Description -->
+        <section> 
+            <h2>App Description</h2>
+            
+            <!-- Who are the users? -->
+            <section>
+                <h3>Who are the users of this application?</h3>
+                <p>
+                    The main users are people thinking about changing their careers, like someone leaving marketing to learn coding,
+                    a teacher wanting to get into UX design, or recent grads figuring out their field. This includes self-taught learners,
+                    bootcamp students, and anyone navigating skill acquisition for a career switch. The app is inclusive because users can
+                    post anonymously if they want, which is especially helpful for people from underrepresented groups who might feel more
+                    comfortable sharing their struggles privately.
+                </p>
+            </section>
+
+        <!-- Features -->
+        <section>
+            <h3>Features</h3>
+            
+            <!-- Feature 1 -->
+            <section id ="feature_1" class="feature_card">
+                <h4>Feature 1: Blog Posting (Full Feature)</h4>
+                <ul>
+                    <li>
+                        Users can create new posts via a "Create Post" button in the navigation bar, which 
+                        opens a form where they can write and publish their career transition stories.
+                    </li>
+                    <li>
+                        Each post includes fields for post title, full content with text formatting options 
+                        (bold, italics, headings, bullet points, and links), career field category 
+                        (like "Tech," "Healthcare," "Creative"), transition type (like "Career Switch," 
+                        "Skill Building," "First Job"), and an optional cover image.
+                    </li>
+                    <li>
+                        Users can edit or delete their own posts at any time by clicking the edit and delete
+                        buttons on the postcard, with all changes saved to Firebase and reflected immediately
+                        on the main feed page.
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- Feature 2 -->
+            <section id="feature_2" class="feature_card">
+                <h4>Feature 2: Discovery & Organization System (Full Feature)</h4>
+                <ul>
+                    <li>
+                        The main feed page includes filter controls at the top that let users narrow down 
+                        posts by career field and transition type. Users can apply multiple filters 
+                        simultaneously to find the most relevant content.
+                    </li>
+                    <li>
+                        Each post card on the feed displays a "Save" button that allows users to add the 
+                        post to one or more personal collections. When clicked, a modal appears where users 
+                        can select existing collections or create a new one with a custom name 
+                        (like "Frontend Development Resources" or "Interview Prep").
+                    </li>
+                    <li>
+                        Users can save the same post to multiple collections, move posts between different 
+                        collections when reorganizing their resources, and manually drag-and-drop posts 
+                        within a collection to prioritize the most important content.
+                    </li>
+                    <li>
+                        A dedicated Collections page (accessible from the navigation bar) displays all 
+                        collections as visual folder cards. Clicking into any folder shows all saved posts 
+                        inside that collection in a list view.
+                    </li>
+                    <li>
+                        Users can rename collections, remove individual posts from a collection, or delete 
+                        entire collections as their needs evolve.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Feature 3 -->
+            <section id="feature_3" class="feature_card">
+                <h4>Feature 3: Post Liking/Unliking (Half Feature)</h4>
+                <ul>
+                    <li>
+                        Users can like posts using a heart icon button displayed on the post cards. Likes are saved to Firebase and update in real-time.
+                    </li>
+                    <li>
+                        Each post displays the total like count (but not individual user names who liked it) 
+                        next to the heart icon. Clicking any post opens the full content on its own dedicated 
+                        page where users can read everything and toggle their like status.
+                    </li>
+                    <li>
+                        A dedicated "Liked Posts" page (accessible from the navigation bar) shows all posts 
+                        a user has liked, making it easy to revisit helpful content later.
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+        </section>
+
+
+            <!-- What kind of information will the users be viewing? -->
+            <section>
+                <h3>What kind of information will the users be viewing?</h3>
+                <p>
+                    The main feed shows post cards with title, author (or "Anonymous"), career field, transition type, publication date,
+                    content preview, and like count. Clicking any post shows the full blog with all details, author info, timestamp, and
+                    options to like or save to collections. The Collections page displays collections as folders, and clicking one shows
+                    all saved posts inside. The liked posts page will display all posts a user has liked. All content is user-generated and
+                    there will be no external data or API is needed.
+                </p>
+            </section>
+            
+
+            <!-- How will using this app help to solve your chosen problem? -->
+            <section>
+                <h3>How does this application solve the problem?</h3>
+                <p>
+                    This app fixes the information problem career changers face by providing one dedicated space for detailed and personal
+                    transition stories. The filtering and search make it easy to find relevant posts. The collections system solves the
+                    organization challenge: users can save useful posts over the months or years their transition takes, organizing them by
+                    topic (technical skills, interview tips, emotional support). The like feature helps good content surface so newcomers
+                    quickly find the best advice. Unlike scattered Reddit threads or polished LinkedIn posts, this platform offers honest
+                    storytelling in a discoverable, organized format where users can learn from others' complete journeys and eventually
+                    contribute their own story to help the next person.
+                </p>
+            </section>
+
+        </section>
+    </main>
+
+    <footer></footer>
+</body>
+</html>
