@@ -1,74 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Select Collections</title>
-  <link rel="stylesheet" href="./css/style.css">
+    <meta charset="utf-8">
+    <meta name="author" content="Tresan Alcorta">
+    <meta name="description" content="View and edit your collections">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Collections</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="images/feed-page-icon.png">
 </head>
 <body>
-  <nav>
-    <img src="images/app-logo.jpg" alt="Blogging App Logo">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="filter.html">Filter Posts</a></li>
-    </ul>
-  </nav>
+    <main>
+        <nav>
+            <img src="images/app-logo.jpg" alt="Blogging App Logo">
+            <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="filter.html">Filter</a></li>
+            <li><a href="collection-selection.html">Selection</a></li>
+            </ul>
+        </nav>
+        
+        <header class="base-header-style">
+          <h1> Collections</h1>
+        </header>
 
-  <header class="base-header-style post-card-header">
-    <div>
-      <h1>Save to Collections</h1>
-      <p>Choose existing folders or make a new one.</p>
-    </div>
-  </header>
+        <section class="main-feed">
+          <button>New Collection</button>
+            <div class="collection-layout">
+                
+                <div class="collection-post">
+                    <div class="post-image-container">
+                        <img class="post-image" src="images/software-engineer-career.jpg" alt="Man pointing at a computer screen with code on it">
+                    </div>
+                    <p class="post-title"><a href="viewcollection.html">Frontend Roadmap</a></p>
+                    <button>Edit</button>
+                </div>
 
-  <main>
-    <section class="collection-card">
-      <h2>My Collections</h2>
+                <div class="collection-post">
+                    <div class="post-image-container">
+                        <img class="post-image" src="images/doctor-career.jpg" alt="medical doctor career switch">
+                    </div>
+                    <p class="post-title">USA</p>
+                    <button>Edit</button>
+                </div>
 
-      <form action="#" method="post" class="collection-form">
-        <!-- Existing collections -->
-        <fieldset>
-          <legend>Select existing</legend>
-          <ul class="collection-list">
-            <li class="collection-item">
-              <label><input type="checkbox" name="collections" value="frontend-roadmap"> Frontend Roadmap</label>
-            </li>
-            <li class="collection-item">
-              <label><input type="checkbox" name="collections" value="usa"> USA</label>
-            </li>
-            <li class="collection-item">
-              <label><input type="checkbox" name="collections" value="interview-prep"> Interview Prep</label>
-            </li>
-          </ul>
-        </fieldset>
-
-        <!-- Create new -->
-        <fieldset>
-          <legend>Create new</legend>
-          <div class="row">
-            <div class="col">
-              <label for="newCollection" class="input-label">Collection Name</label>
-              <input id="newCollection" name="newCollection" type="text" placeholder="e.g., UX Design Inspiration">
+                <div class="collection-post">
+                    <div class="post-image-container">
+                        <img class="post-image" src="images/talk-show-host-career.jpg" alt="Woman speaking into a microphone">
+                    </div>
+                    <p class="post-title"><a href="post-card.html">Interview Prep</a></p>
+                    <button>Edit</button>
+                </div>
+                
             </div>
-            <div class="col align-end">
-              <button type="button" class="btn secondary">Create</button>
-            </div>
-          </div>
-          <p class="muted">Creation is just a placeholder for now (hook up later).</p>
-        </fieldset>
-
-        <!-- Actions -->
-        <div class="actions">
-          <button type="submit" class="btn primary">Save</button>
-          <a class="btn ghost" href="index.html">Cancel</a>
-        </div>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p class="author">© 2025 CareerPivot Team. All rights reserved.</p>
-  </footer>
+        </section>
+    </main>
 </body>
-</html>
+<footer>
+  <p class="author"> &copy; 2025 Lunjia Dai, Tresan Alcorta, Rui Wang, Brian Yoo. All rights reserved. </p>
+  <span>Email:</span> <address><a href="mailto:lunjia@uw.edu">lunjia@uw.edu</a><a href="mailto:tresan33@uw.edu">, tresan33@uw.edu</a></address>
+</footer>
