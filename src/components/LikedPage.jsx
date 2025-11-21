@@ -1,4 +1,4 @@
-import Navigation from './Navigation';
+import NavBar from './NavBar';
 import Footer from './Footer';
 import LikedPostCard from './LikedPostCard';
 
@@ -9,7 +9,7 @@ function LikedPage(props) {
 
     return (
         <>
-            <Navigation />
+            <NavBar />
             
             <main className="liked-posts-main">
                 <section className="liked-posts-section">
