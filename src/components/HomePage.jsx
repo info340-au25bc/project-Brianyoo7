@@ -1,9 +1,7 @@
 import NavBar from "./NavBar"
 import Header from "./Header";
 import PostFeed from "./PostFeed";
-import PostCard from "./PostCard"
 import Footer from "./Footer";
-import { useState } from "react";
 
 function HomePage(props) {
     const navLinksArray = [
