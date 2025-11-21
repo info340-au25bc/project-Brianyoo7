@@ -5,72 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Select Collections</title>
   <link rel="stylesheet" href="./css/style.css">
-  <link rel="icon" type="image/png" href="images/feed-page-icon.png">
 </head>
 <body>
   <nav>
-    <img src="images/app-logo.jpg" alt="Blogging App Logo">
+    <img src="images/app-logo.jpg" alt="App Logo">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="filter.html">Filter Posts</a></li>
+      <li><a href="filter.html">Filter</a></li>
+      <li aria-current="page"><a href="collection-select.html">Collections</a></li>
     </ul>
   </nav>
 
-  <header class="base-header-style post-card-header">
-    <div>
-      <h1>Save to Collections</h1>
-      <p>Choose existing folders or make a new one.</p>
-    </div>
+  <header class="page-header">
+    <h1>Save to Collections</h1>
+    <p>Select collections or create a new one.</p>
   </header>
 
   <main>
-    <section class="collection-card">
+    <section class="card">
       <h2>My Collections</h2>
 
-      <form action="#" method="post" class="collection-form">
-        <!-- Existing collections -->
+      <p id="selected-count" class="muted">0 selected</p>
+
+      <form class="collection-form">
+
         <fieldset>
-          <legend>Select existing</legend>
+          <legend>Existing Collections</legend>
           <ul class="collection-list">
-            <li class="collection-item">
-              <label><input type="checkbox" name="collections" value="frontend-roadmap"> Frontend Roadmap</label>
-            </li>
-            <li class="collection-item">
-              <label><input type="checkbox" name="collections" value="usa"> USA</label>
-            </li>
-            <li class="collection-item">
-              <label><input type="checkbox" name="collections" value="interview-prep"> Interview Prep</label>
-            </li>
+            <li><label><input type="checkbox" class="collection-check" value="Frontend Roadmap"> Frontend Roadmap</label></li>
+            <li><label><input type="checkbox" class="collection-check" value="USA"> USA</label></li>
+            <li><label><input type="checkbox" class="collection-check" value="Interview Prep"> Interview Prep</label></li>
           </ul>
         </fieldset>
 
-        <!-- Create new -->
         <fieldset>
-          <legend>Create new</legend>
-          <div class="row">
-            <div class="col">
-              <label for="newCollection" class="input-label">Collection Name</label>
-              <input id="newCollection" name="newCollection" type="text" placeholder="e.g., UX Design Inspiration">
-            </div>
-            <div class="col align-end">
-              <button type="button" class="btn secondary">Create</button>
-            </div>
-          </div>
-          <p class="muted">Creation is just a placeholder for now (hook up later).</p>
+          <legend>Create New</legend>
+          <label for="newCollection">Name</label>
+          <input id="newCollection" type="text" placeholder="Career Change Stories">
+
+          <button id="createBtn" type="button" class="btn secondary create-btn">Create</button>
         </fieldset>
 
-        <!-- Actions -->
         <div class="actions">
           <button type="submit" class="btn primary">Save</button>
-          <a class="btn ghost" href="index.html">Cancel</a>
+          <a href="index.html" class="btn ghost">Cancel</a>
         </div>
       </form>
+
+      <div id="preview-panel" class="preview-panel hidden">
+        <h3>Selected Collections</h3>
+        <div id="preview-chips" class="preview-chips"></div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p class="author"> &copy; 2025 Lunjia Dai, Tresan Alcorta, Rui Wang, Brian Yoo. All rights reserved. </p>
-    <span>Email:</span> <address><a href="mailto:lunjia@uw.edu">lunjia@uw.edu</a><a href="mailto:tresan33@uw.edu">, tresan33@uw.edu</a></address>
+    <p class="author">© 2025 CareerPivot Team</p>
   </footer>
-</body>
-</html>
+
+  <script>
+    const checkboxes = document.querySelectorAll(".collection-check");
+    const countDisplay = document.getElementById("selected-count");
+    const previewPanel = document.getElementById("preview-panel");
+    const previewChips = document.getElementById("preview-chips");
+
+    function updatePreview() {
+      const selected = [...document.querySelectorAll(".collection-check:checked")];
+      countDisplay.textContent = `${selected.length} selected`;
+      previewChips.innerHTML = "";
+
+      if (selected.length === 0) {
+        previewPanel.classList.add("hidden");
+        return;
+      }
+      previewPanel.classList.remove("hidden");
+
+      selected.forEach(cb => {
+        const chip = document.createElement("span");
+        chip.className = "chip";
+        chip.textContent = cb.value;
+        previewChips.appendChild(chip);
+      });
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener("change", updatePreview));
+
+    document.getElementById("createBtn").addEventListener("click", () => {
+      const input = document.getElementById("newCollection");
+      const name = input.value.trim();
+      if (!name) return;
+
+      const list = document.querySelector(".collection-list");
+      const li

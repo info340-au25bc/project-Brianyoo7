@@ -8,38 +8,38 @@
 </head>
 <body>
   <nav>
-    <img src="images/app-logo.jpg" alt="Blogging App Logo">
+    <img src="images/app-logo.jpg" alt="App Logo">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li aria-current="page"><a href="filter.html">Filter Posts</a></li>
+      <li aria-current="page"><a href="filter.html">Filter</a></li>
+      <li><a href="collection-select.html">Collections</a></li>
     </ul>
   </nav>
 
-  <header class="base-header-style filter-header">
-    <div>
-      <h1>Filter Posts</h1>
-      <p class="lead-in">Narrow the feed by career field, transition type, and date.</p>
-    </div>
+  <header class="page-header">
+    <h1>Filter Posts</h1>
+    <p class="lead">Narrow posts by field, category, and date.</p>
   </header>
 
   <main>
-    <section class="filter-card">
+    <section class="card">
       <h2>Filters</h2>
 
-      <form action="#" method="get" class="filter-form">
+      <form id="filterForm" class="filter-form">
+
         <fieldset>
           <legend>Career Field</legend>
-          <label for="careerField" class="input-label">Field</label>
-          <input id="careerField" name="careerField" type="text" placeholder="e.g., Tech, Healthcare, Creative">
+          <label for="careerField">Field</label>
+          <input id="careerField" type="text" placeholder="Tech, Healthcare, etc.">
         </fieldset>
 
         <fieldset>
           <legend>Transition Type</legend>
           <div class="choice-row">
-            <label class="chip"><input type="checkbox" name="transition" value="switch"> Career Switch</label>
-            <label class="chip"><input type="checkbox" name="transition" value="skill"> Skill Building</label>
-            <label class="chip"><input type="checkbox" name="transition" value="first"> First Job</label>
-            <label class="chip"><input type="checkbox" name="transition" value="return"> Return to Work</label>
+            <label><input type="checkbox" value="switch"> Career Switch</label>
+            <label><input type="checkbox" value="skill"> Skill Building</label>
+            <label><input type="checkbox" value="first"> First Job</label>
+            <label><input type="checkbox" value="return"> Return to Work</label>
           </div>
         </fieldset>
 
@@ -47,35 +47,40 @@
           <legend>Date Range</legend>
           <div class="row">
             <div class="col">
-              <label for="startDate" class="input-label">From</label>
-              <input id="startDate" name="startDate" type="date">
+              <label for="startDate">From</label>
+              <input id="startDate" type="date">
             </div>
             <div class="col">
-              <label for="endDate" class="input-label">To</label>
-              <input id="endDate" name="endDate" type="date">
+              <label for="endDate">To</label>
+              <input id="endDate" type="date">
             </div>
           </div>
         </fieldset>
 
         <div class="actions">
-          <button type="submit" class="btn primary">Apply Filters</button>
-          <button type="reset" class="btn ghost">Clear</button>
-          <a class="btn secondary" href="collection-select.html">Save Filter Set</a>
+          <button class="btn primary" type="submit">Apply</button>
+          <button class="btn ghost" type="reset">Clear</button>
         </div>
       </form>
     </section>
 
-    <section class="results-card">
+    <section class="card">
       <h2>Results</h2>
-
       <p id="result-count" class="muted">0 posts match your filters.</p>
-
-      <p class="muted">Filtered posts will appear here in the full build.</p>
+      <p class="muted">Filtered content will appear here later.</p>
     </section>
   </main>
 
   <footer>
-    <p class="author">© 2025 CareerPivot Team. All rights reserved.</p>
+    <p class="author">© 2025 CareerPivot Team</p>
   </footer>
+
+  <script>
+    document.getElementById("filterForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const fake = Math.floor(Math.random() * 7) + 1;
+      document.getElementById("result-count").textContent = `${fake} posts match your filters.`;
+    });
+  </script>
 </body>
 </html>
