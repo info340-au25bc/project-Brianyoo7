@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+ 
 function NavBar(props) {
     const navLinks = props.navLinks;
 
@@ -7,7 +9,7 @@ function NavBar(props) {
             <ul>
                 {
                     navLinks.map((navObj, index) => {
-                        return <li key={index}><a href={navObj.url}>{navObj.name}</a></li>
+                        return <li key={index}><Link to={navObj.url}>{navObj.name}</Link></li>
                     })
                 }
             </ul>

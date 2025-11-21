@@ -5,9 +5,9 @@ import Footer from "./Footer";
 
 function HomePage(props) {
     const navLinksArray = [
-        { name: "Create Post", url: "post-creation.html" },
-        { name: "Filter Posts", url: "filter.html" },
-        { name: "Collections", url: "collections.html" }
+        { name: "Create Post", url: "/postcreation" },
+        { name: "Filter Posts", url: "/filter" },
+        { name: "Collections", url: "/collections" },
     ];
     const headerText = "Share your career switching journey to inspire and get inspired. Start now"
     

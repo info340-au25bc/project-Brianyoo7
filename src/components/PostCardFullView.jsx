@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function PostCardFullView(props) {
-    const navLinksArray = { name: "Home", url: "Home" };
+    const navLinksArray = [{ name: "Home", url: "/" }];
     const headerText = "See the full content of the post below!";
     
     return (

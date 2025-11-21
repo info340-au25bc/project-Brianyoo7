@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import HomePage from "./HomePage";
+import { Routes, Route } from 'react-router' 
+import PostCardFullView from './PostCardFullView';
+import PostCreation from './PostCreation';
 // import LikedPage from "./LikedPage";
 // import POSTS_DATA from "../data/postsData";
 
@@ -58,13 +61,15 @@ function App(props) {
       ];
 
     return (
-        <>
-            <HomePage postArray={postData} />
-            {/* <LikedPage 
-                likedPosts={likedPosts}
-                onUnlike={handleUnlike}
-            /> */}
-        </>
+        <Routes>
+          <Route path="/" element={<HomePage postArray={postData} />} />
+          <Route path="/postview" element={<PostCardFullView />} />
+          <Route path="/postcreation" element={<PostCreation />} />
+          {/* <LikedPage 
+              likedPosts={likedPosts}
+              onUnlike={handleUnlike}
+          /> */}
+        </Routes>
     );
 }
 

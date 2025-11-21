@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function PostCreation(props) {
-    const navLinksArray = { name: "Home", url: "Home" };
+    const navLinksArray = [{ name: "Home", url: "/" }];
     const headerText = "Create Your Post Here";
 
     return (
@@ -14,21 +14,21 @@ function PostCreation(props) {
                 <form className="post-creation-form" action="index.html" method="POST">
                     <div className="form-column">
                         <div className="form-group">
-                            <label for="image-upload">Upload the cover image for your post</label>
+                            <label htmlFor="image-upload">Upload the cover image for your post</label>
                             <input type="file" id="image-upload" name="image-upload" accept="image/*"/>
                         </div>
                         <div className="form-group">
-                            <label for="post-title-input">Post Title</label>
+                            <label htmlFor="post-title-input">Post Title</label>
                             <textarea id="post-title-input" name="post-title-input" rows="2" col="40" placeholder="This is your lovely post's title!"></textarea>
                         </div>
                         <div className="form-group">
-                            <label for="post-description-input">Post Title</label>
+                            <label htmlFor="post-description-input">Post Title</label>
                             <textarea id="post-description-input" name="post-description-input" rows="10" col="80" placeholder="Share your story here!"></textarea>
                         </div>
                     </div>
                     <div className="form-column">
                         <div className="form-group">
-                            <label for="career-input">Career Type</label>
+                            <label htmlFor="career-input">Career Type</label>
                             <select type="select" id="career-input" name="career-input">
                                 <option value="technology">Technology</option>
                                 <option value="healthcare">Healthcare</option>
@@ -39,7 +39,7 @@ function PostCreation(props) {
                         </div>
 
                         <div className="form-group">
-                            <label for="transition-input">Transition Type</label>
+                            <label htmlFor="transition-input">Transition Type</label>
                             <select type="select" id="transition-input" name="transition-input" >
                                 <option value="career-pivot">Career Pivot (New Field)</option>
                                 <option value="upskilling">Upskilling/Reskilling</option>
