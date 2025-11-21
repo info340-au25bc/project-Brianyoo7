@@ -1,13 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>project-draft</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Lunjia Dai, Brian Yoo, Alfred Wang">
+    <meta name="description" content="CareerPivot: Share and discover career switching stories and get inspired by others' journeys">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Posts Feed Page</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="images/feed-page-icon.png">
+</head>
+<body>
+    <nav>
+        <img src="images/app-logo.jpg" alt="Blogging App Logo">
+        <ul>
+            <li><a href="post-creation.html">Create Post</a></li>
+            <li><a href="filter.html">Filter Posts</a></li>
+            <li><a href="collections.html">Collections</a></li>
+        </ul>
+    </nav>
+    <header class="base-header-style main-feed-header">
+        <div>
+            <h1>CareerPivot</h1>
+            <p class="lead-in">Share your career switching journey to inspire and get inspired. Start now.</p>
+        </div>
+    </header>
+    <main>
+        <!-- The main page where the pages will be displayed -->
+        <section class="main-feed">
+            <h2>Posts</h2>
+            <div class="posts-layout">
+                <!-- Example Card 1 -->
+                <div class="post">
+                    <div class="post-image-container">
+                        <img class="post-image" src="images/software-engineer-career.jpg" alt="software engineer career switch">
+                    </div>
+                    <p class="post-title">My Success Story: Going From Sales to SWE</p>
+                </div>
+
+                <!-- Example Card 2 -->
+                <div class="post">
+                    <div class="post-image-container">
+                        <img class="post-image" src="images/doctor-career.jpg" alt="medical doctor career switch">
+                    </div>
+                    <p class="post-title">My Success Story: Going From SWE to Doctor</p>
+                </div>
+
+                <!-- Example Card 3 -->
+                <div class="post">
+                    <div class="post-image-container">
+                        <img class="post-image" src="images/astronaut-career.jpg" alt="astronaut career switch">
+                    </div>
+                    <p class="post-title">My Success Story: Going From Doctor to Astronaut</p>
+                </div>
+
+                <!-- Example Card 4 -->
+                <div class="post">
+                    <div class="post-image-container">
+                        <img class="post-image" src="images/engineer-career.jpg" alt="engineer career switch">
+                    </div>
+                    <p class="post-title">My Success Story: Going From Doctor to Engineer</p>
+                </div>
+
+                <!-- Example Card 5 -->
+                <div class="post">
+                    <div class="post-image-container">
+                        <img class="post-image" src="images/actor-career.gif" alt="actor career switch">
+                    </div>
+                    <p class="post-title">My Success Story: Going From Engineer to Actor</p>
+                </div>
+
+                <!-- Example Card 6 -->
+                <div class="post">
+                    <div class="post-image-container">
+                        <img class="post-image" src="images/talk-show-host-career.jpg" alt="talk show host career switch">
+                    </div>
+                    <p class="post-title">My Success Story: Going From Actor to Talk Show Host</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="author"> &copy; 2025 Lunjia Dai, Tresan Alcorta, Rui Wang, Brian Yoo. All rights reserved. </p>
+        <span>Email:</span> <address><a href="mailto:lunjia@uw.edu">lunjia@uw.edu</a><a href="mailto:tresan33@uw.edu">, tresan33@uw.edu</a></address>
+    </footer>
+</body>
 </html>
