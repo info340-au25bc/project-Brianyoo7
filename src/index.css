@@ -565,4 +565,50 @@ footer a:hover {
   margin-top: 0;
 }
 
+/* Unlike button styling */
+.unlike-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.unlike-btn:hover {
+  background-color: #ff5252;
+  transform: scale(1.02);
+}
+
+.unlike-btn:active {
+  transform: scale(0.98);
+}
+
+/* Empty state message */
+.no-posts-message {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  font-size: 1.2rem;
+  color: #333;
+  background-color: white;
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.no-posts-message p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.no-posts-message p:first-child {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
 }
