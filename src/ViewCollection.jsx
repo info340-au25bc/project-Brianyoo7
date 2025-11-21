@@ -1,5 +1,10 @@
 import React from 'react';
 
+function viewCollection(props) {
+    return(
+        hello
+    );
+}
 const viewCollection = 
         <section class="main-feed">
             <button class="collection-button">Back</button>
