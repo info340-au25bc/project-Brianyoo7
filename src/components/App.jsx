@@ -2,6 +2,7 @@ import HomePage from "./HomePage";
 import PostCardFullView from './PostCardFullView';
 import PostCreation from './PostCreation';
 import LikedPage from './LikedPage';
+import collectionsMain from "./Collections";
 import { useState } from "react";
 import { Routes, Route, useParams } from 'react-router'
 
@@ -59,6 +60,7 @@ function App(props) {
           <Route path="/postcreation" element={<PostCreation />} />
           <Route path="/postview/:id" element={<PostCardFullViewWrapper postArray={postData} likedPostData={likedPostData} setlikedPostData={setlikedPostData}/>} />
           <Route path="/likedpage" element={<LikedPage likedPostData={likedPostData} setlikedPostData={setlikedPostData} />}/>
+          <Route path="/collections" element={<collectionsMain/>} />
         </Routes>
     );
 }
