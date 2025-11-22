@@ -1,10 +1,17 @@
+import { useNavigate} from "react-router-dom";
+
 function PostCard(props) {
+    const navigate = useNavigate();
+    const handlePostClick = () => {
+        navigate(`/postview/${props.id}`);
+    }
+
     return (
-        <div className="post">
+        <div className="post" onClick={handlePostClick}>
             <div className="post-image-container">
-                <img className="post-image" src="images/software-engineer-career.jpg" alt="software engineer career switch" />
+                <img className="post-image" src={props.image} alt={props.alt} />
             </div>
-            <p className="post-title">My Success Story: Going From Sales to SWE</p>
+            <p className="post-title">{props.title}</p>
         </div>
     );
 }
