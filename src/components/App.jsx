@@ -9,38 +9,44 @@ function App(props) {
         {
           id: 1,
           title: "My Success Story: Going From Sales to SWE",
-          image: "images/software-engineer-career.jpg",
-          alt: "software engineer career switch"
+          image: "/images/software-engineer-career.jpg",
+          alt: "software engineer career switch",
+          description: "I have made it"
         },
         {
           id: 2,
           title: "My Success Story: Going From SWE to Doctor",
-          image: "images/doctor-career.jpg",
-          alt: "medical doctor career switch"
+          image: "/images/doctor-career.jpg",
+          alt: "medical doctor career switch",
+          description: "I have made it"
         },
         {
           id: 3,
           title: "My Success Story: Going From Doctor to Astronaut",
-          image: "images/astronaut-career.jpg",
-          alt: "astronaut career switch"
+          image: "/images/astronaut-career.jpg",
+          alt: "astronaut career switch",
+          description: "I have made it"
         },
         {
           id: 4,
           title: "My Success Story: Going From Doctor to Engineer",
-          image: "images/engineer-career.jpg",
-          alt: "engineer career switch"
+          image: "/images/engineer-career.jpg",
+          alt: "engineer career switch",
+          description: "I have made it"
         },
         {
           id: 5,
           title: "My Success Story: Going From Engineer to Actor",
-          image: "images/actor-career.gif",
-          alt: "actor career switch"
+          image: "/images/actor-career.gif",
+          alt: "actor career switch",
+          description: "I have made it"
         },
         {
           id: 6,
           title: "My Success Story: Going From Actor to Talk Show Host",
-          image: "images/talk-show-host-career.jpg",
-          alt: "talk show host career switch"
+          image: "/images/talk-show-host-career.jpg",
+          alt: "talk show host career switch",
+          description: "I have made it"
         }
       ];
 

@@ -5,7 +5,7 @@ function NavBar(props) {
 
     return (
         <nav>
-            <img src="images/app-logo.jpg" alt="Blogging App Logo" />
+            <img src="/images/app-logo.jpg" alt="Blogging App Logo" />
             <ul>
                 {
                     navLinks.map((navObj, index) => {
