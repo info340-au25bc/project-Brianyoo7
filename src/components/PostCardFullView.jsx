@@ -1,11 +1,30 @@
 import NavBar from "./NavBar"
 import Header from "./Header";
 import Footer from "./Footer";
+import { useNavigate } from 'react-router';
 
 function PostCardFullView(props) {
     const navLinksArray = [{ name: "Home", url: "/" }];
     const headerText = "See the full content of the post below!";
     const postData = props.postData;
+    const likedPosts = props.likedPosts
+    const setlikedPostData = props.setlikedPostData;
+    const navigate = useNavigate();
+
+    const handleLikeClick = () => {
+        let hasLiked = false;
+        likedPosts.forEach((post) => {
+            if (post.id === postData.id) {
+                hasLiked = true;
+            }
+        });
+
+        if (!hasLiked) {
+            setlikedPostData([...likedPosts, postData]);
+        }
+
+        navigate("/likedpage");
+    }
     
     return (
         <>
@@ -25,7 +44,7 @@ function PostCardFullView(props) {
                         <p className="transition-description">Transition Type: Upskilling/Reskilling</p>
                         <div className="like-section">
                             <p>Like The Post: </p>
-                            <button className="like-btn-style" type="button">❤️</button>
+                            <button className="like-btn-style" type="button" onClick={handleLikeClick}>❤️</button>
                         </div>
                     </div>
                 </div>
