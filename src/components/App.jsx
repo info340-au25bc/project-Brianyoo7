@@ -1,8 +1,9 @@
 import HomePage from "./HomePage";
-import { Routes, Route, useParams } from 'react-router' 
 import PostCardFullView from './PostCardFullView';
 import PostCreation from './PostCreation';
 import LikedPage from './LikedPage';
+import { useState } from "react";
+import { Routes, Route, useParams } from 'react-router'
 
 function App(props) {
     const postData = [
@@ -49,26 +50,26 @@ function App(props) {
           description: "I have made it"
         }
       ];
+    
+    const [likedPostData, setlikedPostData] = useState([]);
 
     return (
         <Routes>
           <Route path="/" element={<HomePage postArray={postData} />} />
           <Route path="/postcreation" element={<PostCreation />} />
-          <Route path="/postview/:id" element={<PostCardFullViewWrapper postArray={postData} />} />
-          <Route path="/likedpage" element={<LikedPage />}/>
-          <Route path="/collections" element={<CollectionsMain />}/>
-          <Route path="/collections/:id" element={<ViewCollection />}/>
+          <Route path="/postview/:id" element={<PostCardFullViewWrapper postArray={postData} likedPostData={likedPostData} setlikedPostData={setlikedPostData}/>} />
+          <Route path="/likedpage" element={<LikedPage likedPostData={likedPostData} setlikedPostData={setlikedPostData} />}/>
         </Routes>
     );
 }
 
 // helper function for the postview page, don't touch this!
-function PostCardFullViewWrapper( {postArray} ) {
+function PostCardFullViewWrapper( {postArray, likedPostData, setlikedPostData} ) {
   const idSelected = parseInt(useParams().id);
   const selectedPostData = postArray.find((post) => {
     return post.id === idSelected;
   });
-  return <PostCardFullView postData={selectedPostData} />
+  return <PostCardFullView postData={selectedPostData} likedPosts={likedPostData} setlikedPostData={setlikedPostData} />
 }
 
 export default App;
