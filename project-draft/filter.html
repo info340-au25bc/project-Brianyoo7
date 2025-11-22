@@ -12,63 +12,51 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li aria-current="page"><a href="filter.html">Filter</a></li>
-      <li><a href="collection-select.html">Collections</a></li>
+      <li><a href="collection-selection.html">Collections</a></li>
     </ul>
   </nav>
 
-  <header class="page-header">
+  <header class="base-header-style">
     <h1>Filter Posts</h1>
-    <p class="lead">Narrow posts by field, category, and date.</p>
+    <p>Narrow posts by field and type.</p>
   </header>
 
-  <main>
-    <section class="card">
-      <h2>Filters</h2>
+  <main class="main-feed">
+    <h2>Filters</h2>
 
-      <form id="filterForm" class="filter-form">
+    <form id="filterForm">
 
-        <fieldset>
-          <legend>Career Field</legend>
-          <label for="careerField">Field</label>
-          <input id="careerField" type="text" placeholder="Tech, Healthcare, etc.">
-        </fieldset>
+      <fieldset>
+        <legend>Career Field</legend>
+        <label for="careerField">Field</label>
+        <input id="careerField" type="text" placeholder="Tech, Healthcare, etc.">
+      </fieldset>
 
-        <fieldset>
-          <legend>Transition Type</legend>
-          <div class="choice-row">
-            <label><input type="checkbox" value="switch"> Career Switch</label>
-            <label><input type="checkbox" value="skill"> Skill Building</label>
-            <label><input type="checkbox" value="first"> First Job</label>
-            <label><input type="checkbox" value="return"> Return to Work</label>
-          </div>
-        </fieldset>
+      <fieldset>
+        <legend>Transition Type</legend>
+        <label><input type="checkbox" value="switch"> Career Switch</label><br>
+        <label><input type="checkbox" value="skill"> Skill Building</label><br>
+        <label><input type="checkbox" value="first"> First Job</label><br>
+        <label><input type="checkbox" value="return"> Return to Work</label>
+      </fieldset>
 
-        <fieldset>
-          <legend>Date Range</legend>
-          <div class="row">
-            <div class="col">
-              <label for="startDate">From</label>
-              <input id="startDate" type="date">
-            </div>
-            <div class="col">
-              <label for="endDate">To</label>
-              <input id="endDate" type="date">
-            </div>
-          </div>
-        </fieldset>
+      <fieldset>
+        <legend>Date Range</legend>
+        <label for="startDate">From</label>
+        <input id="startDate" type="date"><br><br>
 
-        <div class="actions">
-          <button class="btn primary" type="submit">Apply</button>
-          <button class="btn ghost" type="reset">Clear</button>
-        </div>
-      </form>
-    </section>
+        <label for="endDate">To</label>
+        <input id="endDate" type="date">
+      </fieldset>
 
-    <section class="card">
-      <h2>Results</h2>
-      <p id="result-count" class="muted">0 posts match your filters.</p>
-      <p class="muted">Filtered content will appear here later.</p>
-    </section>
+      <button type="submit" class="collection-button">Apply Filters</button>
+      <button type="reset" class="collection-button">Clear</button>
+
+    </form>
+
+    <h2>Results</h2>
+    <p id="result-count">0 posts match your filters.</p>
+
   </main>
 
   <footer>
@@ -76,10 +64,11 @@
   </footer>
 
   <script>
-    document.getElementById("filterForm").addEventListener("submit", function(event) {
-      event.preventDefault();
+    document.getElementById("filterForm").addEventListener("submit", function(e) {
+      e.preventDefault();
       const fake = Math.floor(Math.random() * 7) + 1;
-      document.getElementById("result-count").textContent = `${fake} posts match your filters.`;
+      document.getElementById("result-count").textContent =
+        fake + " posts match your filters.";
     });
   </script>
 </body>

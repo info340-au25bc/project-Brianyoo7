@@ -12,51 +12,43 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="filter.html">Filter</a></li>
-      <li aria-current="page"><a href="collection-select.html">Collections</a></li>
+      <li aria-current="page"><a href="collection-selection.html">Collections</a></li>
     </ul>
   </nav>
 
-  <header class="page-header">
+  <header class="base-header-style">
     <h1>Save to Collections</h1>
-    <p>Select collections or create a new one.</p>
+    <p>Select one or more folders.</p>
   </header>
 
-  <main>
-    <section class="card">
-      <h2>My Collections</h2>
+  <main class="main-feed">
+    <h2>My Collections</h2>
 
-      <p id="selected-count" class="muted">0 selected</p>
+    <p id="selected-count">0 selected</p>
 
-      <form class="collection-form">
+    <form>
 
-        <fieldset>
-          <legend>Existing Collections</legend>
-          <ul class="collection-list">
-            <li><label><input type="checkbox" class="collection-check" value="Frontend Roadmap"> Frontend Roadmap</label></li>
-            <li><label><input type="checkbox" class="collection-check" value="USA"> USA</label></li>
-            <li><label><input type="checkbox" class="collection-check" value="Interview Prep"> Interview Prep</label></li>
-          </ul>
-        </fieldset>
+      <fieldset>
+        <legend>Existing Collections</legend>
+        <label><input type="checkbox" class="collection-check" value="Frontend Roadmap"> Frontend Roadmap</label><br>
+        <label><input type="checkbox" class="collection-check" value="USA"> USA</label><br>
+        <label><input type="checkbox" class="collection-check" value="Interview Prep"> Interview Prep</label>
+      </fieldset>
 
-        <fieldset>
-          <legend>Create New</legend>
-          <label for="newCollection">Name</label>
-          <input id="newCollection" type="text" placeholder="Career Change Stories">
+      <fieldset>
+        <legend>Create New</legend>
+        <label for="newCollection">Name</label>
+        <input id="newCollection" type="text" placeholder="Career Story Ideas">
+        <button type="button" id="createBtn" class="collection-button">Create</button>
+      </fieldset>
 
-          <button id="createBtn" type="button" class="btn secondary create-btn">Create</button>
-        </fieldset>
+      <button type="submit" class="collection-button">Save</button>
+      <a href="index.html" class="collection-button">Cancel</a>
+    </form>
 
-        <div class="actions">
-          <button type="submit" class="btn primary">Save</button>
-          <a href="index.html" class="btn ghost">Cancel</a>
-        </div>
-      </form>
+    <h3>Selected Collections</h3>
+    <div id="preview-chips"></div>
 
-      <div id="preview-panel" class="preview-panel hidden">
-        <h3>Selected Collections</h3>
-        <div id="preview-chips" class="preview-chips"></div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -64,36 +56,32 @@
   </footer>
 
   <script>
-    const checkboxes = document.querySelectorAll(".collection-check");
-    const countDisplay = document.getElementById("selected-count");
-    const previewPanel = document.getElementById("preview-panel");
-    const previewChips = document.getElementById("preview-chips");
+    const checks = document.querySelectorAll(".collection-check");
+    const count = document.getElementById("selected-count");
+    const chips = document.getElementById("preview-chips");
 
-    function updatePreview() {
+    function update() {
       const selected = [...document.querySelectorAll(".collection-check:checked")];
-      countDisplay.textContent = `${selected.length} selected`;
-      previewChips.innerHTML = "";
-
-      if (selected.length === 0) {
-        previewPanel.classList.add("hidden");
-        return;
-      }
-      previewPanel.classList.remove("hidden");
-
+      count.textContent = selected.length + " selected";
+      chips.innerHTML = "";
       selected.forEach(cb => {
-        const chip = document.createElement("span");
-        chip.className = "chip";
-        chip.textContent = cb.value;
-        previewChips.appendChild(chip);
+        const div = document.createElement("div");
+        div.textContent = cb.value;
+        chips.appendChild(div);
       });
     }
 
-    checkboxes.forEach(cb => cb.addEventListener("change", updatePreview));
+    checks.forEach(c => c.addEventListener("change", update));
 
     document.getElementById("createBtn").addEventListener("click", () => {
-      const input = document.getElementById("newCollection");
-      const name = input.value.trim();
+      const name = document.getElementById("newCollection").value.trim();
       if (!name) return;
-
-      const list = document.querySelector(".collection-list");
-      const li
+      const label = document.createElement("label");
+      label.innerHTML = `<input type="checkbox" class="collection-check" value="${name}"> ${name}`;
+      document.querySelector("fieldset").appendChild(label);
+      label.querySelector("input").addEventListener("change", update);
+      document.getElementById("newCollection").value = "";
+    });
+  </script>
+</body>
+</html>
