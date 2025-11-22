@@ -12,13 +12,13 @@ function LikedPage(props) {
     return (
         <>
             <NavBar navLinks={navLinksArray} />
-            <Header />
+            <Header headerText=""/>
             <main className="liked-posts-main">
                 <section className="liked-posts-section">
                     <h1 className="liked-posts-page-title">Liked Posts</h1>
                     <div className="liked-posts-grid">
                         {likedPostData.map((post) => {
-                            <LikedPostCard key={post.id} image={post.image} alt={post.alt} title={post.title} />
+                            return <LikedPostCard key={post.id} image={post.image} alt={post.alt} title={post.title} />
                         })}
                     </div>
 
