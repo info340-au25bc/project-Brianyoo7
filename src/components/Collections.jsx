@@ -4,11 +4,15 @@ import Footer from './Footer';
 import NavBar from './NavBar';
 import { Link } from 'react-router';
 
-// should take an array of collections objets
-// collections should contain an array of post objects
-// display collections cards
-// display 
-function collectionsMain(props) {
+function CollectionsMain() {
+    const navLinksArray = [
+        { name: "Create Post", url: "/postcreation" },
+        { name: "Filter Posts", url: "/filter" },
+        { name: "Collections", url: "/collections" }, 
+        { name: "Liked Pages", url: "/likedpage"},
+        { name: "Home", url: "/"}
+    ];
+    const headerText = "My Collections"
     return(
     <>
         <NavBar navLinks={navLinksArray}/>
@@ -21,7 +25,7 @@ function collectionsMain(props) {
                     <div className="post-image-container">
                         <img className="post-image" src="images/software-engineer-career.jpg" alt="Man pointing at a computer screen with code on it"/>
                     </div>
-                    <p className="post-title"><Link to="/collections/1">Career Switches</Link></p>
+                    <p className="post-title"><Link to="/viewcollection">Career Switches</Link></p>
                     <button>Edit</button>
                 </div>
 
@@ -50,4 +54,4 @@ function collectionsMain(props) {
     );
 }
 
-export default collectionsMain;
+export default CollectionsMain;

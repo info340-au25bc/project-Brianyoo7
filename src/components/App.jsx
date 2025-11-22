@@ -2,9 +2,10 @@ import HomePage from "./HomePage";
 import PostCardFullView from './PostCardFullView';
 import PostCreation from './PostCreation';
 import LikedPage from './LikedPage';
-import collectionsMain from "./Collections";
+import CollectionsMain from "./Collections";
 import { useState } from "react";
 import { Routes, Route, useParams } from 'react-router'
+import ViewCollection from "./ViewCollection";
 
 function App(props) {
     const postData = [
@@ -60,7 +61,8 @@ function App(props) {
           <Route path="/postcreation" element={<PostCreation />} />
           <Route path="/postview/:id" element={<PostCardFullViewWrapper postArray={postData} likedPostData={likedPostData} setlikedPostData={setlikedPostData}/>} />
           <Route path="/likedpage" element={<LikedPage likedPostData={likedPostData} setlikedPostData={setlikedPostData} />}/>
-          <Route path="/collections" element={<collectionsMain/>} />
+          <Route path="/collections" element={<CollectionsMain />} />
+          <Route path="/viewcollection" element={<ViewCollection />} />
         </Routes>
     );
 }

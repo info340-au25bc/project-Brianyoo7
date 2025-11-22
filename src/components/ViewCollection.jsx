@@ -2,12 +2,18 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import NavBar from './NavBar';
-import { Link, useParams } from 'react-router';
+import { Link } from 'react-router';
 
 
-function ViewCollection(props) {
-    const { id } = useParams();
-
+function ViewCollection() {
+    const navLinksArray = [
+        { name: "Create Post", url: "/postcreation" },
+        { name: "Filter Posts", url: "/filter" },
+        { name: "Collections", url: "/collections" }, 
+        { name: "Liked Pages", url: "/likedpage"},
+        { name: "Home", url: "/"}
+    ];
+    const headerText = "Career Switches"
     return(
         <>
             <NavBar navLinks={navLinksArray}/>
@@ -90,4 +96,4 @@ function ViewCollection(props) {
     );
 }
         
-export default ViewCollection();
+export default ViewCollection;
