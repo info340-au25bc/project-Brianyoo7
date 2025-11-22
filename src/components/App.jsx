@@ -56,6 +56,8 @@ function App(props) {
           <Route path="/postcreation" element={<PostCreation />} />
           <Route path="/postview/:id" element={<PostCardFullViewWrapper postArray={postData} />} />
           <Route path="/likedpage" element={<LikedPage />}/>
+          <Route path="/collections" element={<CollectionsMain />}/>
+          <Route path="/collections/:id" element={<ViewCollection />}/>
         </Routes>
     );
 }
