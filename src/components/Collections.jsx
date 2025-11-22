@@ -11,8 +11,8 @@ import { Link } from 'react-router';
 function collectionsMain(props) {
     return(
     <>
-        <NavBar />
-        <Header />
+        <NavBar navLinks={navLinksArray}/>
+        <Header summary={headerText}/>
         <section className="main-feed">
             <button>New Collection</button>
             <div className="collection-layout">

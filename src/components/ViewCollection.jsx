@@ -10,8 +10,8 @@ function ViewCollection(props) {
 
     return(
         <>
-            <NavBar />
-            <Header />
+            <NavBar navLinks={navLinksArray}/>
+            <Header summary={headerText}/>
             <section className="main-feed">
                 <Link to="/collections"><button className="collection-button">Back</button></Link>
                 <button className="collection-button">Edit</button>
