@@ -6,6 +6,7 @@ import CollectionsMain from "./Collections";
 import { useState } from "react";
 import { Routes, Route, useParams } from 'react-router'
 import ViewCollection from "./ViewCollection";
+import Filter from './Filter';
 
 function App(props) {
     const postData = [
@@ -63,6 +64,7 @@ function App(props) {
           <Route path="/likedpage" element={<LikedPage likedPostData={likedPostData} setlikedPostData={setlikedPostData} />}/>
           <Route path="/collections" element={<CollectionsMain />} />
           <Route path="/viewcollection" element={<ViewCollection />} />
+          <Route path="/filter" element={<Filter />} />
         </Routes>
     );
 }
