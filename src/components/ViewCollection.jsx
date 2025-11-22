@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from 'Header';
-import Footer from 'Footer';
-import NavBar from 'NavBar';
+import Header from './Header';
+import Footer from './Footer';
+import NavBar from './NavBar';
 import { Link, useParams } from 'react-router';
 
 
