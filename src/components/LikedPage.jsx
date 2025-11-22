@@ -18,7 +18,13 @@ function LikedPage(props) {
                     <h1 className="liked-posts-page-title">Liked Posts</h1>
                     <div className="liked-posts-grid">
                         {likedPostData.map((post) => {
-                            return <LikedPostCard key={post.id} image={post.image} alt={post.alt} title={post.title} />
+                            return <LikedPostCard key={post.id}
+                                                  id={post.id}
+                                                  image={post.image}
+                                                  alt={post.alt}
+                                                  title={post.title}
+                                                  likedPostData={likedPostData}
+                                                  setlikedPostData={props.setlikedPostData}/>
                         })}
                     </div>
 
