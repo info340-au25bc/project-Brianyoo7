@@ -1,26 +1,10 @@
-import { useState } from 'react';
 import HomePage from "./HomePage";
 import { Routes, Route } from 'react-router' 
 import PostCardFullView from './PostCardFullView';
 import PostCreation from './PostCreation';
-// import LikedPage from "./LikedPage";
-// import POSTS_DATA from "../data/postsData";
+import LikedPage from './LikedPage';
 
 function App(props) {
-    // const [likedPosts, setLikedPosts] = useState([
-    //     POSTS_DATA[0],
-    //     POSTS_DATA[1]
-    // ]);
-
-    // // remove a post from liked
-    // function handleUnlike(postId) {
-    //     const confirmed = window.confirm('Remove this post from your liked posts?');
-    //     if (confirmed) {
-    //         setLikedPosts(likedPosts.filter(function(post) {
-    //             return post.id !== postId;
-    //         }));
-    //     }
-    // }
     const postData = [
         {
           id: 1,
@@ -63,12 +47,9 @@ function App(props) {
     return (
         <Routes>
           <Route path="/" element={<HomePage postArray={postData} />} />
-          <Route path="/postview" element={<PostCardFullView />} />
           <Route path="/postcreation" element={<PostCreation />} />
-          {/* <LikedPage 
-              likedPosts={likedPosts}
-              onUnlike={handleUnlike}
-          /> */}
+          <Route path="/postview/:id" element={<PostCardFullView />} />
+          <Route path="/likedpage" element={<LikedPage />}/>
         </Routes>
     );
 }

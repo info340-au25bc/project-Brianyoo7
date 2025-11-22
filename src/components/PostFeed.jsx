@@ -8,7 +8,7 @@ function PostFeed(props) {
                 <div className="posts-layout">
                     {
                         props.postArray.map((postObj) => {
-                            return <PostCard key={postObj.id} image={postObj.image} alt={postObj.alt} title={postObj.title}/>
+                            return <PostCard key={postObj.id} id={postObj.id} image={postObj.image} alt={postObj.alt} title={postObj.title}/>
                         })
                     }
                 </div>

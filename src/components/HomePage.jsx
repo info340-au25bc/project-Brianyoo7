@@ -7,7 +7,7 @@ function HomePage(props) {
     const navLinksArray = [
         { name: "Create Post", url: "/postcreation" },
         { name: "Filter Posts", url: "/filter" },
-        { name: "Collections", url: "/collections" },
+        { name: "Collections", url: "/collections" }
     ];
     const headerText = "Share your career switching journey to inspire and get inspired. Start now"
     
