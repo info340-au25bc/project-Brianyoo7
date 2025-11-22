@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from 'Header';
 import Footer from 'Footer';
+import NavBar from 'NavBar';
 
 // should take an array of collections objets
 // collections should contain an array of post objects
