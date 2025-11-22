@@ -1,5 +1,5 @@
 import HomePage from "./HomePage";
-import { Routes, Route } from 'react-router' 
+import { Routes, Route, useParams } from 'react-router' 
 import PostCardFullView from './PostCardFullView';
 import PostCreation from './PostCreation';
 import LikedPage from './LikedPage';
@@ -48,10 +48,19 @@ function App(props) {
         <Routes>
           <Route path="/" element={<HomePage postArray={postData} />} />
           <Route path="/postcreation" element={<PostCreation />} />
-          <Route path="/postview/:id" element={<PostCardFullView />} />
+          <Route path="/postview/:id" element={<PostCardFullViewWrapper postArray={postData} />} />
           <Route path="/likedpage" element={<LikedPage />}/>
         </Routes>
     );
+}
+
+// helper function for the postview page, don't touch this!
+function PostCardFullViewWrapper( {postArray} ) {
+  const idSelected = parseInt(useParams().id);
+  const selectedPostData = postArray.find((post) => {
+    return post.id === idSelected;
+  });
+  return <PostCardFullView postData={selectedPostData} />
 }
 
 export default App;

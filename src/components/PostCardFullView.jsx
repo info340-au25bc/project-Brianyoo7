@@ -1,10 +1,12 @@
 import NavBar from "./NavBar"
 import Header from "./Header";
 import Footer from "./Footer";
+import { useParams } from 'react-router';
 
 function PostCardFullView(props) {
     const navLinksArray = [{ name: "Home", url: "/" }];
     const headerText = "See the full content of the post below!";
+    const postId = useParams().id;
     
     return (
         <>
