@@ -106,6 +106,10 @@ main {
   margin-bottom: 1rem;
 }
 
+.post:hover {
+  cursor: pointer;
+}
+
 .post-image-container {
   width: 100%;
   height: 200px;
@@ -190,6 +194,10 @@ main {
   width: 100%;
 }
 
+.submit-btn:hover {
+  cursor: pointer;
+}
+
 .discard-btn {
   display: inline-block;
   padding: 2rem;
@@ -200,6 +208,74 @@ main {
   font-weight: bold;
   text-decoration: none;
   width: 100%;
+}
+
+.discard-btn:hover {
+  cursor: pointer;
+}
+
+.form-column .image-upload-label-style {
+  font-size: 1.5rem;
+}
+
+.dropzone {
+  border: 2px dashed #c9c6c6;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  background-color: #fafafa;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.dropzone:hover {
+  border-color: #9d9d9d;
+  background-color: #f0f0f0;
+}
+
+.dropzone p {
+  margin: 0;
+  color: #605e5e;
+  font-size: 16px;
+}
+
+.image-upload-success-style {
+  background-color: #f0f9f0;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.image-upload-success-style p {
+  margin: 0;
+  color: #2d5f2e;
+  font-weight: 500;
+}
+
+.image-upload-success-style p::before {
+  color: #4caf50;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.image-upload-btn-style {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #666;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.image-upload-btn-style:hover {
+  background-color: #f5f5f5;
+  border-color: #999;
 }
 
 /* Styling for the post detail page header */
@@ -378,48 +454,33 @@ main {
   color: black;
 }
 
+.card-column-2 {
+  display: flex;
+  flex-direction: column;
+}
 
+.edit-post-btn-style,
+.delete-post-btn-style {
+  width: 120px;
+  padding: 20px;
+  border-width: 2px;
+  border-radius: 3px;
+}
 
+.edit-post-btn-style {
+  background-color: rgb(202, 202, 73);
+}
 
-/* Responsive Design for large screen */
-@media (min-width: 1200px) {
-  
-  .liked-posts-main {
-      padding-top: 150px;
-  }
+.edit-post-btn-style:hover {
+  cursor: pointer;
+}
 
-  .liked-posts-page-title {
-      font-size: 4rem;
-  }
+.delete-post-btn-style {
+  background-color: red;
+}
 
-  .liked-posts-grid {
-      flex-direction: row;
-      flex-wrap: wrap;
-      padding: 2rem 1rem;
-      justify-content: center;
-      margin: 0 auto;
-  }
-
-  .liked-post-card {
-      flex: 0 0 calc(31.8% - 2rem);
-      margin: 1rem;
-  }
-
-  .liked-card-title {
-      font-size: 2rem;
-  }
-
-  .liked-card-image-container {
-      height: 250px;
-  }
-
-  .view-more-btn {
-      font-size: 1.5rem;
-  }
-
-  .arrow-down {
-      font-size: 1.2rem;
-  }
+.delete-post-btn-style:hover {
+  cursor: pointer;
 }
 
 /* Styling for the footer */
@@ -527,10 +588,42 @@ footer a:hover {
       margin-top: 5rem;
       gap: 5rem;
   }
-  
-  .submit-btn,
-  .discard-btn {
-      width: auto;
+
+  .liked-posts-main {
+    padding-top: 150px;
+  }
+
+  .liked-posts-page-title {
+    font-size: 4rem;
+  }
+
+  .liked-posts-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2rem 1rem;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .liked-post-card {
+    flex: 0 0 calc(31.8% - 2rem);
+    margin: 1rem;
+  }
+
+  .liked-card-title {
+      font-size: 2rem;
+  }
+
+  .liked-card-image-container {
+      height: 250px;
+  }
+
+  .view-more-btn {
+      font-size: 1.5rem;
+  }
+
+  .arrow-down {
+      font-size: 1.2rem;
   }
 
   /* Styling for the post detail page layout */

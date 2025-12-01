@@ -6,7 +6,9 @@ import { useNavigate } from 'react-router';
 function PostCardFullView(props) {
     const navLinksArray = [{ name: "Home", url: "/" }];
     const headerText = "See the full content of the post below!";
-    const postData = props.postData;
+    const selectedPostData = props.selectedPostData;
+    const postsArray = props.postArray;
+    const setPostsData = props.setPostsData;
     const likedPosts = props.likedPosts
     const setlikedPostData = props.setlikedPostData;
     const navigate = useNavigate();
@@ -14,16 +16,30 @@ function PostCardFullView(props) {
     const handleLikeClick = () => {
         let hasLiked = false;
         likedPosts.forEach((post) => {
-            if (post.id === postData.id) {
+            if (post.id === selectedPostData.id) {
                 hasLiked = true;
             }
         });
 
         if (!hasLiked) {
-            setlikedPostData([...likedPosts, postData]);
+            setlikedPostData([...likedPosts, selectedPostData]);
         }
 
         navigate("/likedpage");
+    }
+
+    const handleDeleteClick = () => {
+        let filteredArray = postsArray.filter((post) => {
+            if (post.id !== selectedPostData.id) {
+                return post;
+            }
+        })
+        setPostsData(filteredArray);
+        navigate("/");
+    }
+
+    const handleEditClick = () => {
+        navigate("/postcreation/" + `${selectedPostData.id}`);
     }
     
     return (
@@ -31,12 +47,12 @@ function PostCardFullView(props) {
             <NavBar navLinks={navLinksArray} />
             <Header summary={headerText} />
             <main>
-                <h2 className="post-detail-title">{postData.title}</h2>
+                <h2 className="post-detail-title">{selectedPostData.title}</h2>
                 <div className="post-detail-layout">
                     <div className="base-column-style card-column-1">
-                        <img className="detail-image" src={postData.image} alt={postData.alt} />
+                        <img className="detail-image" src={selectedPostData.image} alt={selectedPostData.alt} />
                         <div className="post-detail-description">
-                            <p>{postData.description}</p>
+                            <p>{selectedPostData.description}</p>
                         </div>
                     </div>
                     <div className="base-column-style card-column-2">
@@ -46,6 +62,8 @@ function PostCardFullView(props) {
                             <p>Like The Post: </p>
                             <button className="like-btn-style" type="button" onClick={handleLikeClick}>❤️</button>
                         </div>
+                        <button className="edit-post-btn-style" type="button" onClick={handleEditClick}>Edit Post</button>
+                        <button className="delete-post-btn-style" type="button" onClick={handleDeleteClick}>Delete Post</button>
                     </div>
                 </div>
             </main>
