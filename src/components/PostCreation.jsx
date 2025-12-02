@@ -3,7 +3,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useState, useCallback, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
-import {useDropzone} from 'react-dropzone'
+import { useDropzone } from 'react-dropzone'
+import { getDatabase, ref, push as firebasePush, set as firebaseSet } from 'firebase/database';
 
 function PostCreation(props) {
     const navLinksArray = [{ name: "Home", url: "/" }];
@@ -25,7 +26,7 @@ function PostCreation(props) {
     useEffect(() => {
         if (id !== undefined) {
             for (let i = 0; i < props.postData.length; i++) {
-                if (props.postData[i].id === parseInt(id)) {
+                if (props.postData[i].id === id) {
                     setTitle(props.postData[i].title);
                     setImage(props.postData[i].image);
                     setAlt(props.postData[i].alt);
@@ -72,48 +73,47 @@ function PostCreation(props) {
     }
 
     // event handler for the submit btn
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+
+        const db = getDatabase();
+        const postRef = ref(db, "posts");
 
         // create a new post
         if (id === undefined) {
-            props.setPostData([...props.postData, {
-                id: props.postId,
-                title: title,
-                image: URL.createObjectURL(image),
-                alt: alt,
-                description: description,
-                career: careerType,
-                transition: transitionType
-            }]);
+            try {
+                await firebasePush(postRef, {
+                    title: title,
+                    image: URL.createObjectURL(image),
+                    alt: alt,
+                    description: description,
+                    career: careerType,
+                    transition: transitionType
+                });
+            }
+            catch (err) {
+                console.log("post creation failed" + err);
+            }
         }
         else {
-            const modifiedPost = props.postData.map((post) => {
-                if (post.id === parseInt(id)) {
-                    return {
-                        id: post.id,
-                        title: title,
-                        image: image,
-                        alt: alt,
-                        description: description,
-                        career: careerType,
-                        transition: transitionType
-                    }
-                }
-                else {
-                    return post;
-                }
-            });
-
-            props.setPostData(modifiedPost);
+            const selectedRef = ref(db, "posts/" + id);
+            const modifiedPost = {
+                                    id: id,
+                                    title: title,
+                                    image: URL.createObjectURL(image),
+                                    alt: alt,
+                                    description: description,
+                                    career: careerType,
+                                    transition: transitionType
+                                };
+            
+            try {
+                await firebaseSet(selectedRef, modifiedPost);
+            }
+            catch (err) {
+                console.log("post edit failed" + err);
+            }
         }
-
-        // update the id for the next post
-        // if the id url param doesn't exit. (in create mode)
-        if (id === undefined) {
-            props.setPostId(props.postId + 1);
-        }
-        console.log(props.postData);
 
         navigate("/");
     }
@@ -125,7 +125,7 @@ function PostCreation(props) {
             <main>
                 <form className="post-creation-form" onSubmit={handleSubmit}>
                     <div className="form-column">
-                        <label className="image-upload-label-style" htmlFor="image-input">Upload the cover image for your post</label>
+                        <label className="image-upload-label-style">Upload the cover image for your post</label>
                         {image ? 
                         <div className="image-upload-success-style">
                             <p>{image.name}</p>
@@ -163,7 +163,7 @@ function PostCreation(props) {
                                 <option value="healthcare">Healthcare</option>
                                 <option value="business">Business & Finance</option>
                                 <option value="education">Education</option>
-                                <option value="creative">Design</option>
+                                <option value="design">Design</option>
                             </select>
                         </div>
 

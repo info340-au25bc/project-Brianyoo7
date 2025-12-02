@@ -2,16 +2,20 @@ import NavBar from "./NavBar"
 import Header from "./Header";
 import Footer from "./Footer";
 import { useNavigate } from 'react-router';
+import { getDatabase, ref, remove as firebaseRemove } from 'firebase/database';
 
 function PostCardFullView(props) {
     const navLinksArray = [{ name: "Home", url: "/" }];
     const headerText = "See the full content of the post below!";
     const selectedPostData = props.selectedPostData;
-    const postsArray = props.postArray;
-    const setPostsData = props.setPostsData;
     const likedPosts = props.likedPosts
     const setlikedPostData = props.setlikedPostData;
     const navigate = useNavigate();
+    const db = getDatabase();
+
+    if (!selectedPostData) {
+        return <div>Loading...</div>;
+    }
 
     const handleLikeClick = () => {
         let hasLiked = false;
@@ -28,20 +32,16 @@ function PostCardFullView(props) {
         navigate("/likedpage");
     }
 
-    const handleDeleteClick = () => {
-        let filteredArray = postsArray.filter((post) => {
-            if (post.id !== selectedPostData.id) {
-                return post;
-            }
-        })
-        setPostsData(filteredArray);
+    const handleDeleteClick = async () => {
+        const toBeDeletedRef = ref(db, "posts/" + selectedPostData.id);
+        await firebaseRemove(toBeDeletedRef);
         navigate("/");
     }
 
     const handleEditClick = () => {
         navigate("/postcreation/" + `${selectedPostData.id}`);
     }
-    
+    console.log(selectedPostData.image);
     return (
         <>
             <NavBar navLinks={navLinksArray} />
@@ -56,8 +56,8 @@ function PostCardFullView(props) {
                         </div>
                     </div>
                     <div className="base-column-style card-column-2">
-                        <p className="career-description">Career Type: Career Pivot (New Field)</p>
-                        <p className="transition-description">Transition Type: Upskilling/Reskilling</p>
+                        <p className="career-description">Career Type: {selectedPostData.career} </p>
+                        <p className="transition-description">Transition Type: {selectedPostData.transition} </p>
                         <div className="like-section">
                             <p>Like The Post: </p>
                             <button className="like-btn-style" type="button" onClick={handleLikeClick}>❤️</button>
