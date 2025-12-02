@@ -1,14 +1,16 @@
+import { getDatabase, ref, set as firebaseSet, remove as firebaseRemove } from 'firebase/database';
+
 function LikedPostCard(props) {
-    const likedPostData = props.likedPostData;
-    const setlikedPostData = props.setlikedPostData
+    const db = getDatabase();
 
-    const handleUnlike = () => {
-        // setlikedPostData
-        const filteredData = likedPostData.filter((post) => {
-            return post.id !== props.id;
-        });
-
-        setlikedPostData(filteredData);
+    const handleUnlike = async () => {
+        const unlikeRef = ref(db, "likedPosts/" + props.id);
+        try {
+            await firebaseRemove(unlikeRef);
+        }
+        catch (err) {
+            console.log("error when removing liked post" + err);
+        }
     }
 
     return (

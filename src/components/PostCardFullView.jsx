@@ -2,7 +2,7 @@ import NavBar from "./NavBar"
 import Header from "./Header";
 import Footer from "./Footer";
 import { useNavigate } from 'react-router';
-import { getDatabase, ref, remove as firebaseRemove } from 'firebase/database';
+import { getDatabase, ref, set as firebaseSet, remove as firebaseRemove } from 'firebase/database';
 
 function PostCardFullView(props) {
     const navLinksArray = [{ name: "Home", url: "/" }];
@@ -17,24 +17,25 @@ function PostCardFullView(props) {
         return <div>Loading...</div>;
     }
 
-    const handleLikeClick = () => {
-        let hasLiked = false;
-        likedPosts.forEach((post) => {
-            if (post.id === selectedPostData.id) {
-                hasLiked = true;
-            }
-        });
-
-        if (!hasLiked) {
-            setlikedPostData([...likedPosts, selectedPostData]);
-        }
-
+    const handleLikeClick = async () => {
+        const toBeLikedRef = ref(db, "likedPosts/" + selectedPostData.id);
+        try {
+            await firebaseSet(toBeLikedRef, selectedPostData);
+        }   
+        catch (err) {
+            console.log("Failure to add liked post" + err);
+        }     
         navigate("/likedpage");
     }
 
     const handleDeleteClick = async () => {
         const toBeDeletedRef = ref(db, "posts/" + selectedPostData.id);
-        await firebaseRemove(toBeDeletedRef);
+        try {
+            await firebaseRemove(toBeDeletedRef);
+        }
+        catch (err) {
+            console.log("Failure to delete post" + err);
+        }
         navigate("/");
     }
 

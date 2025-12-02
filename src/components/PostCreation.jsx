@@ -100,7 +100,7 @@ function PostCreation(props) {
             const modifiedPost = {
                                     id: id,
                                     title: title,
-                                    image: URL.createObjectURL(image),
+                                    image: typeof(image) !== "string" ? URL.createObjectURL(image) : image,
                                     alt: alt,
                                     description: description,
                                     career: careerType,

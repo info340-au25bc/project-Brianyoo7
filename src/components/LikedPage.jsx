@@ -8,6 +8,7 @@ function LikedPage(props) {
         { name: "Home", url: "/" },
     ];
     const likedPostData = props.likedPostData;
+    console.log(likedPostData);
 
     return (
         <>
