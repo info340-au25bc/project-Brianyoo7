@@ -5,7 +5,6 @@ function LikedPostCard(props) {
 
     const handleUnlike = async () => {
         const unlikeRef = ref(db, "likedPosts/" + props.id);
-
         try {
             await firebaseRemove(unlikeRef);
         }
