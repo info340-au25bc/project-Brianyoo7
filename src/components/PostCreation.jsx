@@ -4,7 +4,8 @@ import Footer from "./Footer";
 import { useState, useCallback, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDropzone } from 'react-dropzone'
-import { getDatabase, ref, push as firebasePush, set as firebaseSet } from 'firebase/database';
+import { getDatabase, ref as databaseRef, push as firebasePush, set as firebaseSet } from 'firebase/database';
+import {getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 function PostCreation(props) {
     const navLinksArray = [{ name: "Home", url: "/" }];
@@ -77,14 +78,30 @@ function PostCreation(props) {
         event.preventDefault();
 
         const db = getDatabase();
-        const postRef = ref(db, "posts");
+        const postRef = databaseRef(db, "posts");
+
+        const storage = getStorage();
+        const uniqueImageName = `postImages/${image.name}_${Date.now()}`;
+        const postImageRef = storageRef(storage, uniqueImageName);
 
         // create a new post
         if (id === undefined) {
+            // upload the image for the post
+            let url = "";
+            try {
+                await uploadBytes(postImageRef, image);
+                url = await getDownloadURL(postImageRef);
+            }
+            catch (err) {
+                console.log("Post Image Upload Failed" + err);
+            }
+
+            // upload the rest of the data to firebase
             try {
                 await firebasePush(postRef, {
                     title: title,
-                    image: URL.createObjectURL(image),
+                    image: url,
+                    imagePath: uniqueImageName,
                     alt: alt,
                     description: description,
                     career: careerType,
@@ -96,11 +113,29 @@ function PostCreation(props) {
             }
         }
         else {
-            const selectedRef = ref(db, "posts/" + id);
+            let url = "";
+
+            // If the image is not changed
+            if (typeof(image) === "string") {
+                url = image;
+            }
+            else {
+                // If the user changes image
+                try {
+                    await uploadBytes(postImageRef, image);
+                    url = await getDownloadURL(postImageRef);
+                }
+                catch (err) {
+                    console.log("Post Image Upload Failed" + err);
+                }
+            }
+
+            const selectedRef = databaseRef(db, "posts/" + id);
             const modifiedPost = {
                                     id: id,
                                     title: title,
-                                    image: URL.createObjectURL(image),
+                                    image: url,
+                                    imagePath: uniqueImageName,
                                     alt: alt,
                                     description: description,
                                     career: careerType,

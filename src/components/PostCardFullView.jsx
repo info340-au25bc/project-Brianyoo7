@@ -2,14 +2,13 @@ import NavBar from "./NavBar"
 import Header from "./Header";
 import Footer from "./Footer";
 import { useNavigate } from 'react-router';
-import { getDatabase, ref, remove as firebaseRemove } from 'firebase/database';
+import { getDatabase, ref, set as firebaseSet, remove as firebaseRemove } from 'firebase/database';
+import { getStorage, ref as storageRef, deleteObject, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function PostCardFullView(props) {
     const navLinksArray = [{ name: "Home", url: "/" }];
     const headerText = "See the full content of the post below!";
     const selectedPostData = props.selectedPostData;
-    const likedPosts = props.likedPosts
-    const setlikedPostData = props.setlikedPostData;
     const navigate = useNavigate();
     const db = getDatabase();
 
@@ -17,24 +16,35 @@ function PostCardFullView(props) {
         return <div>Loading...</div>;
     }
 
-    const handleLikeClick = () => {
-        let hasLiked = false;
-        likedPosts.forEach((post) => {
-            if (post.id === selectedPostData.id) {
-                hasLiked = true;
-            }
-        });
+    const handleLikeClick = async () => {
+        const toBeLikedRef = ref(db, "likedPosts/" + selectedPostData.id);
 
-        if (!hasLiked) {
-            setlikedPostData([...likedPosts, selectedPostData]);
-        }
-
+        try {
+            await firebaseSet(toBeLikedRef, {...selectedPostData});
+        }   
+        catch (err) {
+            console.log("Failure to add liked post" + err);
+        }     
         navigate("/likedpage");
     }
 
     const handleDeleteClick = async () => {
+        const storage = getStorage();
+        const toBeDeletedImageRef = storageRef(storage, selectedPostData.imagePath);
+        try {
+            await deleteObject(toBeDeletedImageRef);
+        }
+        catch (err) {
+            console.log("Failure to delete post image" + err);
+        }
+
         const toBeDeletedRef = ref(db, "posts/" + selectedPostData.id);
-        await firebaseRemove(toBeDeletedRef);
+        try {
+            await firebaseRemove(toBeDeletedRef);
+        }
+        catch (err) {
+            console.log("Failure to delete post" + err);
+        }
         navigate("/");
     }
 

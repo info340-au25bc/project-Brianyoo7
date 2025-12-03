@@ -21,6 +21,7 @@ function LikedPage(props) {
                             return <LikedPostCard key={post.id}
                                                   id={post.id}
                                                   image={post.image}
+                                                  imagePath={post.imagePath}
                                                   alt={post.alt}
                                                   title={post.title}
                                                   likedPostData={likedPostData}

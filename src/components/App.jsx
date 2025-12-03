@@ -43,6 +43,32 @@ function App(props) {
       return cleanup;
     }, []);
 
+
+    // use firebase to manage liked post data
+    useEffect(() => {
+      const db = getDatabase();
+      const likepostRef = ref(db, "likedPosts");
+
+      const unregisterFunction = onValue(likepostRef, (snapshot) => {
+        const likepostDataJson = snapshot.val();
+
+        if (likepostDataJson) {
+          const currentlikePostData = Object.keys(likepostDataJson).map((key) => {
+                                    return {...likepostDataJson[key], id : key}
+                                  })
+          setlikedPostData(currentlikePostData);
+        }
+        else {
+          setlikedPostData([]);
+        }
+      })
+
+      function cleanup() {
+        unregisterFunction();
+      }
+      return cleanup;
+    }, [])
+
     return (
         <Routes>
           <Route path="/" element={<HomePage postArray={postData} />} />
