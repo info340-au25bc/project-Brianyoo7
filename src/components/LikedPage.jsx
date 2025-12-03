@@ -29,13 +29,6 @@ function LikedPage(props) {
                                                   setlikedPostData={props.setlikedPostData}/>
                         })}
                     </div>
-
-                    <div className="view-more-container">
-                        <button className="view-more-btn">
-                            View More
-                            <span className="arrow-down">▼</span>
-                        </button>
-                    </div>
                 </section>
             </main>
             <Footer />
