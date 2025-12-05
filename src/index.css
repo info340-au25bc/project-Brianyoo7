@@ -12,7 +12,7 @@ body {
 
 /* Styling for the nav bar */
 nav {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -423,8 +423,16 @@ main {
   font-size: 1rem;
 }
 
-.collection-button {
-  display: inline;
+.collection-btn {
+  font-size: 24px;
+  padding: 5rem;
+  margin: 5rem;
+  border-radius: 15px;
+  width: 45vw;
+}
+
+.collection-btn:hover {
+  background-color: lightblue;
 }
 
 .collection-post {
@@ -485,6 +493,7 @@ main {
 
 /* Styling for the footer */
 footer {
+  position: sticky;
   color: white;
   height: 10rem;
   background-color: #4169E1;

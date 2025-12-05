@@ -18,7 +18,7 @@ function CollectionsMain() {
         <NavBar navLinks={navLinksArray}/>
         <Header summary={headerText}/>
         <section className="main-feed">
-            <button>New Collection</button>
+            <button className="collection-btn">New Collection</button>
             <div className="collection-layout">
                         
                 <div className="collection-post">

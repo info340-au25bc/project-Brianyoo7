@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
- 
+import { Hamburger } from "./Hamburger";
+
 function NavBar(props) {
     const navLinks = props.navLinks;
 
@@ -13,6 +14,9 @@ function NavBar(props) {
                     })
                 }
             </ul>
+            <div className="hamburger">
+                <Hamburger />
+            </div>
         </nav>
     );
 }
