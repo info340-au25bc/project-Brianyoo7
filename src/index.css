@@ -3,6 +3,56 @@
   box-sizing: border-box;
 }
 
+@media (max-width: 768px) {
+    /* Styling for hamburger nav menu */
+  .hamburger {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+    z-index: 10;
+  }
+
+  .burger {
+    width: 2rem;
+    height: 0.25rem;
+    border-radius: 10px;
+    background-color: black;
+    transform-origin: 1px;
+    transition: all 0.2s linear;
+  }
+
+  .open-top {
+  transform: rotate(45deg);
+  }
+  .open-middle {
+    opacity: 0;
+  }
+  .open-bottom {
+    transform: rotate(-45deg);
+  }
+
+
+.dropdown-links{
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  background: #4169E1;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.dropdown-links li {
+  display: block;
+  padding-right: 1rem;
+}
+
+}
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
@@ -58,7 +108,6 @@ nav a:hover {
 
 /* Base Style for the header */
 .base-header-style {
-  margin-top: 60px;
   background-image: url("../images/app-homepage-background.jpg");
   background-size: cover;
   background-position: center;
@@ -424,11 +473,15 @@ main {
 }
 
 .collection-btn {
+  display: flex;
   font-size: 24px;
-  padding: 5rem;
-  margin: 5rem;
+  padding: 3rem;
+  margin: 1rem;
   border-radius: 15px;
   width: 45vw;
+  background-color: #4169E1;
+  color: white;
+  text-decoration: none;
 }
 
 .collection-btn:hover {
@@ -460,6 +513,25 @@ main {
 .collection-post a {
   text-decoration: none;
   color: black;
+}
+
+.collection-edit {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.edit-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .card-column-2 {
@@ -548,6 +620,11 @@ footer a:hover {
 
   nav a {
       font-size: 3rem;
+  }
+
+  .hamburger {
+    display: none;
+    background: none;
   }
   
   /* Styling for the posts layout */

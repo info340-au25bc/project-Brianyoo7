@@ -7,16 +7,20 @@ import PostCreation from './PostCreation';
 import LikedPage from './LikedPage';
 import CollectionsMain from "./Collections";
 import ViewCollection from "./ViewCollection";
+import CollectionCreation from './CollectionCreation';
+import CollectionEdit from "./CollectionEdit";
 import Filter from './Filter';
 
 function App(props) {
 
+    // collectionData = [{id, title, image, alt, description, posts[]}]
     // postData = [{id, title, image, alt, description, Career Type, Transition Type}]
 
     // set up states
     const [postData, setPostData] = useState([]);
     const [postId, setPostId] = useState(0);
     const [likedPostData, setlikedPostData] = useState([]);
+    const [collectionsData, setCollectionsData] = useState([]);
 
     // use firebase to manage post data
     useEffect(() => {
@@ -69,6 +73,25 @@ function App(props) {
       return cleanup;
     }, [])
 
+    useEffect(() => {
+      const db = getDatabase();
+      const collectionsRef = ref(db, "collections");
+
+      const unregisterFunction = onValue(collectionsRef, (snapshot) => {
+        const collectionsJson = snapshot.val();
+
+        if (collectionsJson) {
+          const currentCollections = Object.keys(collectionsJson).map((key) => {
+            return { ...collectionsJson[key], id: key};
+          });
+          setCollectionsData(currentCollections);
+        } else {
+          setCollectionsData([]);
+        }
+      });
+      return () => unregisterFunction();
+    }, []);
+
     return (
         <Routes>
           <Route path="/" element={<HomePage postArray={postData} />} />
@@ -85,8 +108,13 @@ function App(props) {
           <Route path="/likedpage" element={<LikedPage 
                                                     likedPostData={likedPostData}
                                                     setlikedPostData={setlikedPostData} />}/>
-          <Route path="/collections" element={<CollectionsMain />} />
-          <Route path="/viewcollection" element={<ViewCollection />} />
+          <Route path="/collections" element={<CollectionsMain
+                                                    colletionsData={collectionsData}/>} />
+          <Route path="/newcollection" element={<CollectionCreation />} />
+          <Route path="/viewcollection/:id" element={<ViewCollection 
+                                                    colletionsData={collectionsData}/>} />
+          <Route path="/editcollection/:id" element={<CollectionEdit 
+                                                    colletionsData={collectionsData}/>} />
           <Route path="/filter" element={<Filter />} />
         </Routes>
     );
