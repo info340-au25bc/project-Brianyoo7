@@ -12,6 +12,7 @@ function NavBar(props) {
     return (
         <nav>
             <img src="/images/app-logo.jpg" alt="Blogging App Logo" />
+            <h1 className="navTitle">CareerPivot</h1>
             <ul>
                 {
                     navLinks.map((navObj, index) => {
