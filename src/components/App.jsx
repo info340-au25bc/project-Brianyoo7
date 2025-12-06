@@ -109,12 +109,17 @@ function App(props) {
                                                     likedPostData={likedPostData}
                                                     setlikedPostData={setlikedPostData} />}/>
           <Route path="/collections" element={<CollectionsMain
-                                                    colletionsData={collectionsData}/>} />
-          <Route path="/newcollection" element={<CollectionCreation />} />
+                                                    collectionsData={collectionsData}/>} />
+          <Route path="/newcollection" element={<CollectionCreation 
+                                                    postArray={postData}
+                                                    likedPostData={likedPostData}
+                                                    setlikedPostData={setlikedPostData}/>} />
           <Route path="/viewcollection/:id" element={<ViewCollection 
-                                                    colletionsData={collectionsData}/>} />
+                                                    collectionsData={collectionsData}
+                                                    postData={postData}/>} />
           <Route path="/editcollection/:id" element={<CollectionEdit 
-                                                    colletionsData={collectionsData}/>} />
+                                                    collectionsData={collectionsData}
+                                                    postData={postData}/>} />
           <Route path="/filter" element={<Filter />} />
         </Routes>
     );

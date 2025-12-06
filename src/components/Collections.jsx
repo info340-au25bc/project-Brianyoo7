@@ -75,10 +75,6 @@ function CollectionsMain() {
         </div>
       </section>
       <Footer />
-
-      {editingCollection && (
-        <CollectionEdit collection={editingCollection} onClose={() => setEditingCollection(null)} onSave={handleSave} />
-      )}
     </>
     );
 }
