@@ -94,7 +94,7 @@ function App(props) {
 
     return (
         <Routes>
-          <Route path="/" element={<HomePage postArray={postData} />} />
+          <Route path="/" element={<HomePage postArray={postData} collectionsData={collectionsData}/>} />
           <Route path="/postcreation/:id?" element={<PostCreation 
                                                     postId={postId}
                                                     postData={postData}

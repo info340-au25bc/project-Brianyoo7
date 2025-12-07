@@ -9,7 +9,6 @@ function CollectionsMain({ collectionsData }) {
   const navLinksArray = [
     { name: "Create Post", url: "/postcreation" },
     { name: "Filter Posts", url: "/filter" },
-    { name: "Collections", url: "/collections" },
     { name: "Liked Pages", url: "/likedpage" },
     { name: "Home", url: "/" },
   ];

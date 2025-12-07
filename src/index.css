@@ -73,6 +73,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1.5rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
 }
 
 .navTitle {
@@ -107,7 +108,6 @@ font-size: 1rem;
 
 nav a:hover {
   transition: ease-out .25s;
-  color: #00f5ff;
   border-bottom: #f0f0f0 0.3rem solid;
 }
 
@@ -600,7 +600,7 @@ footer a:hover {
 
   /* Styling for the header */
   .base-header-style {
-      height: 400px;
+      height: 150px;
   }
 
   .base-header-style h1 {

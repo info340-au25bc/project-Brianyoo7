@@ -93,7 +93,7 @@ function CollectionCreation() {
       description,
       careerType,
       transitionType,
-      posts // ✅ include posts array
+      posts 
     };
 
     try {
