@@ -120,7 +120,8 @@ function App(props) {
           <Route path="/editcollection/:id" element={<CollectionEdit 
                                                     collectionsData={collectionsData}
                                                     postData={postData}/>} />
-          <Route path="/filter" element={<Filter />} />
+          <Route path="/filter" element={<Filter postArray={postData} />}/>
+
         </Routes>
     );
 }

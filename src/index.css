@@ -792,3 +792,65 @@ footer a:hover {
 }
 
 }
+
+.filter-page {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.filter-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.filter-form-container {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 1.8rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+.filter-results {
+  flex: 2;
+}
+
+.filter-result-card {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+.filter-form-container label {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+}
+
+.filter-form-container select,
+.filter-form-container input[type="text"],
+.filter-form-container input[type="date"] {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .filter-layout {
+    flex-direction: column;
+  }
+
+  .filter-results {
+    width: 100%;
+  }
+}
+
+
+
