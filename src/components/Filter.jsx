@@ -1,7 +1,15 @@
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Filter({ postArray }) {
+  const navLinksArray = [
+    { name: "Home", url: "/" },
+    { name: "Collections", url: "/collections" },
+    { name: "Liked Pages", url: "/likedpage" },
+    { name: "Create Post", url: "/postcreation" },
+  ];
   const [careerType, setCareerType] = useState("");
   const [transitionType, setTransitionType] = useState("");
 
@@ -14,15 +22,7 @@ export default function Filter({ postArray }) {
 
   return (
     <>
-      <nav>
-        <img src="/images/app-logo.jpg" alt="App Logo" />
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/collections">Collections</Link></li>
-          <li><Link to="/likedpage">Liked Pages</Link></li>
-          <li><Link to="/postcreation">Create Post</Link></li>
-        </ul>
-      </nav>
+      <NavBar navLinks={navLinksArray} />
 
       <header className="base-header-style">
         <h1>Filter Posts</h1>
@@ -30,82 +30,37 @@ export default function Filter({ postArray }) {
 
       <main className="main-feed">
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: "2rem",
-            marginBottom: "1.5rem"
-          }}
-        >
-          <h2 style={{ flex: 1, textAlign: "center", margin: 0 }}>Filters</h2>
-
-          <span style={{ fontSize: "1.1rem", fontWeight: "bold" }}>
+        <div className="filter-header">
+          <span className="results-count">
             Results: {filteredPosts.length}
           </span>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "2rem",
-            alignItems: "flex-start",
-            flexWrap: "wrap"
-          }}
-        >
-          <section
-            style={{
-              flex: "0 0 280px",
-              backgroundColor: "white",
-              padding: "1.5rem",
-              borderRadius: "8px",
-              boxShadow: "0 2px 6px rgba(0,0,0,0.15)"
-            }}
-          >
+        <div className="filter-container">
+          <section className="filter-sidebar">
             <form>
-              <label style={{ display: "block", fontWeight: 600 }}>
+              <label className="filter-label">
                 Career Type
                 <select
                   value={careerType}
                   onChange={(e) => setCareerType(e.target.value)}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    marginTop: "0.35rem",
-                    padding: "0.5rem",
-                    borderRadius: "4px",
-                    border: "1px solid #ccc"
-                  }}
+                  className="filter-select"
                 >
                   <option value="">All</option>
                   <option value="technology">Technology</option>
                   <option value="healthcare">Healthcare</option>
-                  <option value="business-finance">Business & Finance</option>
+                  <option value="business">Business & Finance</option>
                   <option value="education">Education</option>
                   <option value="design">Design</option>
                 </select>
               </label>
 
-              <label
-                style={{
-                  display: "block",
-                  fontWeight: 600,
-                  marginTop: "1.3rem"
-                }}
-              >
+              <label className="filter-label-spacing">
                 Transition Type
                 <select
                   value={transitionType}
                   onChange={(e) => setTransitionType(e.target.value)}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    marginTop: "0.35rem",
-                    padding: "0.5rem",
-                    borderRadius: "4px",
-                    border: "1px solid #ccc"
-                  }}
+                  className="filter-select"
                 >
                   <option value="">All</option>
                   <option value="career-pivot">Career Pivot</option>
@@ -115,13 +70,13 @@ export default function Filter({ postArray }) {
                   <option value="transition-freelance">
                     Transition to Freelance
                   </option>
-                  <option value="pre-retirement">Pre-retirement Transition</option>
+                  <option value="retirement-prep">Pre-retirement Transition</option>
                 </select>
               </label>
             </form>
           </section>
 
-          <section style={{ flex: "1 1 0px" }}>
+          <section className="filter-content">
             {filteredPosts.length === 0 ? (
               <p>No posts match these filters yet.</p>
             ) : (
@@ -145,13 +100,7 @@ export default function Filter({ postArray }) {
         </div>
       </main>
 
-      <footer>
-        <p className="author">© 2025 Lunjia Dai, Tresan Alcorta, Rui Wang, Brian Yoo.</p>
-        <address>
-          Email: <a href="mailto:lunjia@uw.edu">lunjia@uw.edu</a>,{" "}
-          <a href="mailto:tresan33@uw.edu">tresan33@uw.edu</a>
-        </address>
-      </footer>
+      <Footer />
     </>
   );
 }

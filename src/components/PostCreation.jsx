@@ -205,13 +205,16 @@ function PostCreation(props) {
                         <div className="form-group">
                             <label htmlFor="transition-input">Transition Type</label>
                             <select type="select" id="transition-input" name="transition-input" onChange={handleTransitionChange} value={transitionType} required>
-                                <option value="">Select an option</option>
-                                <option value="career-pivot">Career Pivot (New Field)</option>
-                                <option value="upskilling">Upskilling/Reskilling</option>
-                                <option value="entrepreneurship">Starting a Business</option>
-                                <option value="freelance">Transitioning to Freelance</option>
-                                <option value="retirement-prep">Pre-Retirement Transition</option>
-                            </select>
+                                <option value="">All</option>
+                                <option value="career-pivot">Career Pivot</option>
+                                <option value="upskilling">Upskilling</option>
+                                <option value="reskilling">Reskilling</option>
+                                <option value="starting-business">Starting a Business</option>
+                                <option value="transition-freelance">
+                                    Transition to Freelance
+                                </option>
+                                <option value="retirement-prep">Pre-retirement Transition</option>
+                                </select>
                         </div>
 
                         <div className="button-group">

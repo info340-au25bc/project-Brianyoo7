@@ -392,6 +392,64 @@ main {
   transition: transform 0.2s ease;
 }
 
+/* Filter page header section */
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.results-count {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* Main filter layout */
+.filter-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Sidebar with filter controls */
+.filter-sidebar {
+  flex: 0 0 280px;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Filter form labels */
+.filter-label {
+  display: block;
+  font-weight: 600;
+}
+
+.filter-label-spacing {
+  display: block;
+  font-weight: 600;
+  margin-top: 1.3rem;
+}
+
+/* Filter dropdown selects */
+.filter-select {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Content area for filtered posts */
+.filter-content {
+  flex: 1 1 0px;
+}
+
 /* Styling for the liked-pages */
 
 .liked-posts-main {
