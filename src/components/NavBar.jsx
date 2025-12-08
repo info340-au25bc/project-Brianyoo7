@@ -20,15 +20,17 @@ function NavBar(props) {
                     })
                 }
             </ul>
-                <Hamburger toggleHamburger={toggleHamburger} isOpen={hamburgerOpen}/> 
-                {hamburgerOpen && (
-                    <ul className='dropdown-links'>
-                        {navLinks.map((navObj, index) => (
-                            <li key={index}><Link to={navObj.url}>{navObj.name}</Link></li>
-                        ))}
-                        
-                    </ul>
-                )}  
+                <div className="hamburger-container">
+                    <Hamburger toggleHamburger={toggleHamburger} isOpen={hamburgerOpen}/> 
+                    {hamburgerOpen && (
+                        <ul className='dropdown-links'>
+                            {navLinks.map((navObj, index) => (
+                                <li key={index}><Link to={navObj.url}>{navObj.name}</Link></li>
+                            ))}
+                            
+                        </ul>
+                    )}  
+                </div>
         </nav>
     );
 }

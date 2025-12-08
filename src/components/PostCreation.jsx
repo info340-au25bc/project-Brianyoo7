@@ -205,7 +205,7 @@ function PostCreation(props) {
                         <div className="form-group">
                             <label htmlFor="transition-input">Transition Type</label>
                             <select type="select" id="transition-input" name="transition-input" onChange={handleTransitionChange} value={transitionType} required>
-                                <option value="">All</option>
+                                <option value="">Select an option</option>
                                 <option value="career-pivot">Career Pivot</option>
                                 <option value="upskilling">Upskilling</option>
                                 <option value="reskilling">Reskilling</option>

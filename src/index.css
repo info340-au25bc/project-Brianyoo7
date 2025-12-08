@@ -111,6 +111,14 @@ nav a:hover {
   border-bottom: #f0f0f0 0.3rem solid;
 }
 
+.hamburger-container {
+  display: block;
+}
+
+nav > ul:not(.dropdown-links) {
+  display: none;
+}
+
 /* Base Style for the header */
 .base-header-style {
   background-image: url("../images/app-homepage-background.jpg");
@@ -656,6 +664,15 @@ footer a:hover {
 /* Responsive Design for the large screen */
 @media (min-width: 1200px) {
 
+  nav > ul:not(.dropdown-links) {
+    display: flex;
+  }
+
+  /* Hide hamburger menu */
+  .hamburger-container {
+    display: none;
+  }
+
   /* Styling for the header */
   .base-header-style {
       height: 150px;
@@ -667,7 +684,7 @@ footer a:hover {
   }
   
   .base-header-style p {
-      font-size: 2.5rem;
+      font-size: 1.25rem;
   }
 
   /* Styling for the nav bar */
