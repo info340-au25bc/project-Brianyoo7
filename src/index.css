@@ -3,6 +3,56 @@
   box-sizing: border-box;
 }
 
+@media (max-width: 768px) {
+    /* Styling for hamburger nav menu */
+  .hamburger {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+    z-index: 10;
+  }
+
+  .burger {
+    width: 2rem;
+    height: 0.25rem;
+    border-radius: 10px;
+    background-color: black;
+    transform-origin: 1px;
+    transition: all 0.2s linear;
+  }
+
+  .open-top {
+  transform: rotate(45deg);
+  }
+  .open-middle {
+    opacity: 0;
+  }
+  .open-bottom {
+    transform: rotate(-45deg);
+  }
+
+
+.dropdown-links{
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  background: #4169E1;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.dropdown-links li {
+  display: block;
+  padding-right: 1rem;
+}
+
+}
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
@@ -23,6 +73,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1.5rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
+}
+
+.navTitle {
+  display: flex;
+  align-self: left;
 }
 
 nav img {
@@ -52,13 +108,11 @@ font-size: 1rem;
 
 nav a:hover {
   transition: ease-out .25s;
-  color: #00f5ff;
   border-bottom: #f0f0f0 0.3rem solid;
 }
 
 /* Base Style for the header */
 .base-header-style {
-  margin-top: 60px;
   background-image: url("../images/app-homepage-background.jpg");
   background-size: cover;
   background-position: center;
@@ -424,11 +478,15 @@ main {
 }
 
 .collection-btn {
+  display: flex;
   font-size: 24px;
-  padding: 5rem;
-  margin: 5rem;
+  padding: 3rem;
+  margin: 1rem;
   border-radius: 15px;
   width: 45vw;
+  background-color: #4169E1;
+  color: white;
+  text-decoration: none;
 }
 
 .collection-btn:hover {
@@ -462,6 +520,25 @@ main {
   color: black;
 }
 
+.collection-edit {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.edit-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
 .card-column-2 {
   display: flex;
   flex-direction: column;
@@ -493,9 +570,9 @@ main {
 
 /* Styling for the footer */
 footer {
-  position: sticky;
+  position: static;
   color: white;
-  height: 10rem;
+  height: 6rem;
   background-color: #4169E1;
   padding-left: 0.5rem;
 }
@@ -523,7 +600,7 @@ footer a:hover {
 
   /* Styling for the header */
   .base-header-style {
-      height: 400px;
+      height: 150px;
   }
 
   .base-header-style h1 {
@@ -537,17 +614,17 @@ footer a:hover {
 
   /* Styling for the nav bar */
   nav {
-      padding: 1rem 3rem; 
-      height: 150px;
-      font-size: 4rem;
-  }
-
-  nav ul {
-      padding-bottom: 1rem;
+      padding: 1rem 1rem; 
+      height: 100px;
   }
 
   nav a {
-      font-size: 3rem;
+      font-size: 1.5rem;
+  }
+
+  .hamburger {
+    display: none;
+    background: none;
   }
   
   /* Styling for the posts layout */
@@ -657,7 +734,7 @@ footer a:hover {
   /* Styling for the footer */
   footer {
       padding: 1.5rem 3rem;
-      font-size: 2rem;
+      font-size: 1rem;
   }
 
   .collection-layout {
@@ -715,3 +792,65 @@ footer a:hover {
 }
 
 }
+
+.filter-page {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.filter-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.filter-form-container {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 1.8rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+.filter-results {
+  flex: 2;
+}
+
+.filter-result-card {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+.filter-form-container label {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+}
+
+.filter-form-container select,
+.filter-form-container input[type="text"],
+.filter-form-container input[type="date"] {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .filter-layout {
+    flex-direction: column;
+  }
+
+  .filter-results {
+    width: 100%;
+  }
+}
+
+
+

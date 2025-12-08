@@ -16,7 +16,7 @@ function HomePage(props) {
         <>
             <NavBar navLinks={navLinksArray} />
             <Header summary={headerText} />
-            <PostFeed postArray={props.postArray} />
+            <PostFeed postArray={props.postArray} collectionsData={props.collectionsData}/>
             <Footer />
         </>
     );

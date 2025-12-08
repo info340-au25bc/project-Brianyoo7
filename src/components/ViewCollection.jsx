@@ -1,99 +1,70 @@
-import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import NavBar from './NavBar';
-import { Link } from 'react-router';
+import React from "react";
+import { useParams, useNavigate } from "react-router";
+import NavBar from "./NavBar";
+import Header from "./Header";
+import Footer from "./Footer";
+
+function ViewCollection({ collectionsData }) {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const selectedCollection = collectionsData.find(
+    (col) => col.id === id
+  );
+
+  if (!selectedCollection) {
+    return <div>Loading collection...</div>;
+  }
+
+  const handleEditClick = () => {
+    navigate("/editcollection/" + selectedCollection.id);
+  };
+
+  const handleDeleteClick = () => {
+    console.log("Delete collection:", selectedCollection.id);
+    navigate("/collections");
+  };
+
+  return (
+    <>
+      <NavBar navLinks={[{ name: "Home", url: "/" }]} />
+      <Header summary={`Viewing Collection: ${selectedCollection.title}`} />
+      <main>
+        <h2 className="collection-detail-title">{selectedCollection.title}</h2>
+        <img
+          className="detail-image"
+          src={selectedCollection.image}
+          alt={selectedCollection.alt}
+        />
+        <p>{selectedCollection.description}</p>
+
+        <button onClick={handleEditClick}>Edit Collection</button>
+        <button onClick={handleDeleteClick}>Delete Collection</button>
 
 
-function ViewCollection() {
-    const navLinksArray = [
-        { name: "Create Post", url: "/postcreation" },
-        { name: "Filter Posts", url: "/filter" },
-        { name: "Collections", url: "/collections" }, 
-        { name: "Liked Pages", url: "/likedpage"},
-        { name: "Home", url: "/"}
-    ];
-    const headerText = "Career Switches"
-    return(
-        <>
-            <NavBar navLinks={navLinksArray}/>
-            <Header summary={headerText}/>
-            <section className="main-feed">
-                <Link to="/collections"><button className="collection-button">Back</button></Link>
-                <button className="collection-button">Edit</button>
-                <div className="collection-layout">
-                    
-                    <div className="collection-post">
-                        <div className="post-image-container">
-                            <img className="post-image" src="images/astronaut-career.jpg" alt="astronaut career switch"/>
-                        </div>
-                        <p className="post-title"><a href="post-card.html">My Success Story: Going From Doctor to Astronaut</a></p>
-                        <button className="collection-button">&#8593</button>
-                        <button className="collection-button">&#8595</button>
-                        <button className="collection-button">Remove</button>
-                        <button className="collection-button">Move to ...</button>
-                    </div>
-
-                    <div className="collection-post">
-                        <div className="post-image-container">
-                            <img className="post-image" src="images/doctor-career.jpg" alt="medical doctor career switch"></img>
-                        </div>
-                        <p className="post-title">My Success Story: Going From SWE to Doctor</p>
-                        <button className="collection-button">&#8593</button>
-                        <button className="collection-button">&#8595</button>
-                        <button className="collection-button">Remove</button>
-                        <button className="collection-button">Move to ...</button>
-                    </div>
-
-                    <div className="collection-post">
-                        <div className="post-image-container">
-                            <img className="post-image" src="images/software-engineer-career.jpg" alt="software engineer career switch"/>
-                        </div>
-                        <p className="post-title">My Success Story: Going From Sales to SWE</p>
-                        <button className="collection-button">&#8593</button>
-                        <button className="collection-button">&#8595</button>
-                        <button className="collection-button">Remove</button>
-                        <button className="collection-button">Move to ...</button>
-                    </div>
-
-                    <div className="collection-post">
-                        <div className="post-image-container">
-                            <img className="post-image" src="images/engineer-career.jpg" alt="engineer career switch"/>
-                        </div>
-                        <p className="post-title">My Success Story: Going From Doctor to Engineer</p>
-                        <button className="collection-button">&#8593</button>
-                        <button className="collection-button">&#8595</button>
-                        <button className="collection-button">Remove</button>
-                        <button className="collection-button">Move to ...</button>
-                    </div>
-
-                    <div className="collection-post">
-                        <div className="post-image-container">
-                            <img className="post-image" src="images/actor-career.gif" alt="actor career switch"/>
-                        </div>
-                        <p className="post-title">My Success Story: Going From Engineer to Actor</p>
-                        <button className="collection-button">&#8593</button>
-                        <button className="collection-button">&#8595</button>
-                        <button className="collection-button">Remove</button>
-                        <button className="collection-button">Move to ...</button>
-                    </div>
-
-                    <div className="collection-post">
-                        <div className="post-image-container">
-                            <img className="post-image" src="images/talk-show-host-career.jpg" alt="talk show host career switch"/>
-                        </div>
-                        <p className="post-title">My Success Story: Going From Actor to Talk Show Host</p>
-                        <button className="collection-button">&#8593</button>
-                        <button className="collection-button">&#8595</button>
-                        <button className="collection-button">Remove</button>
-                        <button className="collection-button">Move to ...</button>
-                    </div>
-
-                </div>
-            </section>
-            <Footer />
-        </>
-    );
+        <section className="collection-posts">
+          <h3>Posts in this Collection</h3>
+          {selectedCollection.posts && selectedCollection.posts.length > 0 ? (
+            selectedCollection.posts.map((post) => (
+              <div key={post.id} className="collection-post-card">
+                <img src={post.image} alt={post.alt} className="post-image" />
+                <h4>{post.title}</h4>
+                <p>{post.description}</p>
+                <p><strong>Career:</strong> {post.careerType}</p>
+                <p><strong>Transition:</strong> {post.transitionType}</p>
+                <button onClick={() => navigate("/postview/" + post.id)}>
+                  View Post
+                </button>
+              </div>
+            ))
+          ) : (
+            <p>No posts in this collection yet.</p>
+          )}
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
 }
-        
+
 export default ViewCollection;

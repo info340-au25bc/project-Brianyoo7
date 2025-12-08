@@ -1,12 +1,18 @@
+import { useState } from 'react';
 import { Link } from "react-router-dom"
-import Hamburger  from "./Hamburger";
+import  Hamburger  from "./Hamburger";
 
 function NavBar(props) {
     const navLinks = props.navLinks;
 
+    const [hamburgerOpen, setHamburgerOpen] = useState(false);
+
+    const toggleHamburger = () => setHamburgerOpen(!hamburgerOpen);
+
     return (
         <nav>
             <img src="/images/app-logo.jpg" alt="Blogging App Logo" />
+            <h1 className="navTitle">CareerPivot</h1>
             <ul>
                 {
                     navLinks.map((navObj, index) => {
@@ -14,9 +20,15 @@ function NavBar(props) {
                     })
                 }
             </ul>
-            <div className="hamburger">
-                <Hamburger />
-            </div>
+                <Hamburger toggleHamburger={toggleHamburger} isOpen={hamburgerOpen}/> 
+                {hamburgerOpen && (
+                    <ul className='dropdown-links'>
+                        {navLinks.map((navObj, index) => (
+                            <li key={index}><Link to={navObj.url}>{navObj.name}</Link></li>
+                        ))}
+                        
+                    </ul>
+                )}  
         </nav>
     );
 }

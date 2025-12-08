@@ -7,16 +7,20 @@ import PostCreation from './PostCreation';
 import LikedPage from './LikedPage';
 import CollectionsMain from "./Collections";
 import ViewCollection from "./ViewCollection";
+import CollectionCreation from './CollectionCreation';
+import CollectionEdit from "./CollectionEdit";
 import Filter from './Filter';
 
 function App(props) {
 
-    // postData = [{id, title, image, imagePath, alt, description, Career Type, Transition Type}]
+    // collectionData = [{id, title, image, alt, description, posts[]}]
+    // postData = [{id, title, image, alt, description, Career Type, Transition Type}]
 
     // set up states
     const [postData, setPostData] = useState([]);
     const [postId, setPostId] = useState(0);
     const [likedPostData, setlikedPostData] = useState([]);
+    const [collectionsData, setCollectionsData] = useState([]);
 
     // use firebase to manage post data
     useEffect(() => {
@@ -69,9 +73,28 @@ function App(props) {
       return cleanup;
     }, [])
 
+    useEffect(() => {
+      const db = getDatabase();
+      const collectionsRef = ref(db, "collections");
+
+      const unregisterFunction = onValue(collectionsRef, (snapshot) => {
+        const collectionsJson = snapshot.val();
+
+        if (collectionsJson) {
+          const currentCollections = Object.keys(collectionsJson).map((key) => {
+            return { ...collectionsJson[key], id: key};
+          });
+          setCollectionsData(currentCollections);
+        } else {
+          setCollectionsData([]);
+        }
+      });
+      return () => unregisterFunction();
+    }, []);
+
     return (
         <Routes>
-          <Route path="/" element={<HomePage postArray={postData} />} />
+          <Route path="/" element={<HomePage postArray={postData} collectionsData={collectionsData}/>} />
           <Route path="/postcreation/:id?" element={<PostCreation 
                                                     postId={postId}
                                                     postData={postData}
@@ -85,9 +108,20 @@ function App(props) {
           <Route path="/likedpage" element={<LikedPage 
                                                     likedPostData={likedPostData}
                                                     setlikedPostData={setlikedPostData} />}/>
-          <Route path="/collections" element={<CollectionsMain />} />
-          <Route path="/viewcollection" element={<ViewCollection />} />
-          <Route path="/filter" element={<Filter />} />
+          <Route path="/collections" element={<CollectionsMain
+                                                    collectionsData={collectionsData}/>} />
+          <Route path="/newcollection" element={<CollectionCreation 
+                                                    postArray={postData}
+                                                    likedPostData={likedPostData}
+                                                    setlikedPostData={setlikedPostData}/>} />
+          <Route path="/viewcollection/:id" element={<ViewCollection 
+                                                    collectionsData={collectionsData}
+                                                    postData={postData}/>} />
+          <Route path="/editcollection/:id" element={<CollectionEdit 
+                                                    collectionsData={collectionsData}
+                                                    postData={postData}/>} />
+          <Route path="/filter" element={<Filter postArray={postData} />}/>
+
         </Routes>
     );
 }
