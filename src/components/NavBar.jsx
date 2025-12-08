@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Hamburger } from "./Hamburger";
+import Hamburger  from "./Hamburger";
 
 function NavBar(props) {
     const navLinks = props.navLinks;

@@ -11,7 +11,7 @@ import Filter from './Filter';
 
 function App(props) {
 
-    // postData = [{id, title, image, alt, description, Career Type, Transition Type}]
+    // postData = [{id, title, image, imagePath, alt, description, Career Type, Transition Type}]
 
     // set up states
     const [postData, setPostData] = useState([]);
