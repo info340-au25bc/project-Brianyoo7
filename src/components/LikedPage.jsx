@@ -8,12 +8,10 @@ function LikedPage(props) {
         { name: "Home", url: "/" },
     ];
     const likedPostData = props.likedPostData;
-    console.log(likedPostData);
 
     return (
         <>
             <NavBar navLinks={navLinksArray} />
-            <Header headerText=""/>
             <main className="liked-posts-main">
                 <section className="liked-posts-section">
                     <h1 className="liked-posts-page-title">Liked Posts</h1>
