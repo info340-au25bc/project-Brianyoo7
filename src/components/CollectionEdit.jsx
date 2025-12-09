@@ -99,7 +99,7 @@ function CollectionEdit() {
       <NavBar navLinks={navLinksArray} />
       <Header summary={headerText} />
       <main>
-        <form className="collection-edit-form" onSubmit={handleSubmit}>
+        <form className="post-creation-form" onSubmit={handleSubmit}>
           <div className="form-column">
             <label className="image-upload-label-style">Upload the cover image for your collection</label>
             {image && typeof image !== "string" ? (

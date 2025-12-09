@@ -21,6 +21,11 @@ function CollectionCard(props) {
     }
   };
 
+  const handleEdit = (e) => {
+    e.stopPropagation();
+    navigate(`/editcollection/${props.id}`)
+  };
+
   return (
     <div className="collection-post" onClick={handleClick}>
       <div className="post-image-container">
@@ -29,7 +34,7 @@ function CollectionCard(props) {
       <p className="post-title">{props.title}</p>
       <div className="card-actions">
         <Link to={`/editcollection/${props.id}`}>
-          <button className="collections-edit">Edit</button>
+          <button onClick={handleEdit} className="collections-edit">Edit</button>
         </Link>
         <button onClick={handleDelete} className="collections-edit">
           Delete
