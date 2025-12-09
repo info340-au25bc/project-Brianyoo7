@@ -613,16 +613,15 @@ main {
 }
 
 .collection-btn {
-  display: flex;
+  display: inline-block;
   font-size: 24px;
-  padding: 3rem;
-  margin: 1rem;
+  padding: 1rem;
+  margin: 0.5rem;
   border-radius: 15px;
   width: 45vw;
   background-color: #4169E1;
   color: white;
   text-decoration: none;
-  justify-content: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
