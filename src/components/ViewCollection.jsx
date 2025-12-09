@@ -3,18 +3,26 @@ import { useParams, useNavigate } from "react-router";
 import NavBar from "./NavBar";
 import Header from "./Header";
 import Footer from "./Footer";
+import PostCard from "./PostCard";
+import CollectionsPostCard from './CollectionsPostCard';
 
-function ViewCollection({ collectionsData }) {
+function ViewCollection(props) {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const selectedCollection = collectionsData.find(
+  const selectedCollection = props.collectionsData.find(
     (col) => col.id === id
   );
 
   if (!selectedCollection) {
     return <div>Loading collection...</div>;
   }
+
+  const postsInCollection = selectedCollection.posts
+  ? selectedCollection.posts
+      .map((postId) => props.postData.find((p) => p.id === postId))
+      .filter(Boolean)
+  : [];
 
   const handleEditClick = () => {
     navigate("/editcollection/" + selectedCollection.id);
@@ -43,24 +51,23 @@ function ViewCollection({ collectionsData }) {
 
 
         <section className="collection-posts">
-          <h3>Posts in this Collection</h3>
-          {selectedCollection.posts && selectedCollection.posts.length > 0 ? (
-            selectedCollection.posts.map((post) => (
-              <div key={post.id} className="collection-post-card">
-                <img src={post.image} alt={post.alt} className="post-image" />
-                <h4>{post.title}</h4>
-                <p>{post.description}</p>
-                <p><strong>Career:</strong> {post.careerType}</p>
-                <p><strong>Transition:</strong> {post.transitionType}</p>
-                <button onClick={() => navigate("/postview/" + post.id)}>
-                  View Post
-                </button>
-              </div>
-            ))
-          ) : (
-            <p>No posts in this collection yet.</p>
-          )}
-        </section>
+      <h3>Posts in this Collection</h3>
+      {postsInCollection.length > 0 ? (
+        postsInCollection.map((post, idx) => (
+          <CollectionsPostCard
+            key={post.id}
+            post={{ ...post, collectionPosts: selectedCollection.posts }}
+            collectionId={selectedCollection.id}
+            collectionData={selectedCollection}
+            currentPosts={selectedCollection.posts}
+            index={idx}
+            totalPosts={postsInCollection.length}
+          />
+        ))
+      ) : (
+        <p>No posts in this collection yet.</p>
+      )}
+    </section>
       </main>
       <Footer />
     </>

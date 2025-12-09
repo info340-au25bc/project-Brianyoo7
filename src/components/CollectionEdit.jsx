@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import { useState, useCallback, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
-import { getDatabase, ref as databaseRef, set as firebaseSet, onValue } from "firebase/database";
+import { getDatabase, ref as databaseRef, set as firebaseSet, onValue, update } from "firebase/database";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function CollectionEdit() {
@@ -13,15 +13,14 @@ function CollectionEdit() {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  // states
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [alt, setAlt] = useState("");
   const [description, setDescription] = useState("");
   const [careerType, setCareerType] = useState("");
   const [transitionType, setTransitionType] = useState("");
+  const [selectedCollection, setSelectedCollection] = useState(null);
 
-  // load existing collection data
   useEffect(() => {
     const db = getDatabase();
     const collectionRef = databaseRef(db, "collections/" + id);
@@ -29,6 +28,7 @@ function CollectionEdit() {
     const unregister = onValue(collectionRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
+        setSelectedCollection(data);
         setTitle(data.title || "");
         setImage(data.image || null);
         setAlt(data.alt || "");
@@ -41,7 +41,6 @@ function CollectionEdit() {
     return () => unregister();
   }, [id]);
 
-  // dropzone for image upload
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length > 0) {
       setImage(acceptedFiles[0]);
@@ -49,12 +48,10 @@ function CollectionEdit() {
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
-  // discard handler
   const handleDiscard = () => {
     navigate("/collections");
   };
 
-  // save handler
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -65,7 +62,6 @@ function CollectionEdit() {
     let url = image;
     let imagePath = "";
 
-    // upload new image if it's a File
     if (image && typeof image !== "string") {
       imagePath = `collectionImages/${image.name}_${Date.now()}`;
       const collectionImageRef = storageRef(storage, imagePath);
@@ -78,6 +74,7 @@ function CollectionEdit() {
     }
 
     const modifiedCollection = {
+      ...selectedCollection,
       id,
       title,
       image: url || "",

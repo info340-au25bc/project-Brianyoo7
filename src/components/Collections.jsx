@@ -14,15 +14,16 @@ function CollectionsMain({ collectionsData }) {
   ];
 
   const headerText = "My Collections";
-
+ 
   return (
     <>
+    <div className="page-container">
       <NavBar navLinks={navLinksArray} />
       <Header summary={headerText} />
       <section className="main-feed">
-        <button className="collection-btn">
-          <Link to="/newcollection">New Collection</Link>
-        </button>
+          <Link className="collection-btn" to="/newcollection">
+          New Collection
+          </Link>
         <div className="collection-layout">
           {collectionsData.length === 0 ? (
             <p>No collections yet. Create one to get started!</p>
@@ -40,6 +41,7 @@ function CollectionsMain({ collectionsData }) {
         </div>
       </section>
       <Footer />
+    </div>
     </>
   );
 }

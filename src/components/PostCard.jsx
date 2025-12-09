@@ -36,17 +36,18 @@ function PostCard(props) {
             </div>
             <p className="post-title">{props.title}</p>
 
-            <div className="add-to-collection">
+            <div className="add-to-collection" onClick={(e) => e.stopPropagation()}>
                 <select
                 value={selectedCollection}
                 onChange={(e) => setSelectedCollection(e.target.value)}
                 >
                 <option value="">Select Collection</option>
-                {Array.isArray(props.collectionsData) && props.collectionsData.map((c) => (
+                {Array.isArray(props.collectionsData) &&
+                    props.collectionsData.map((c) => (
                     <option key={c.id} value={c.id}>
-                    {c.title}
+                        {c.title}
                     </option>
-                ))}
+                    ))}
                 </select>
                 <button onClick={handleAddToCollection}>Add to Collection</button>
             </div>

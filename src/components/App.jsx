@@ -104,7 +104,8 @@ function App(props) {
                                                     postArray={postData}
                                                     likedPostData={likedPostData}
                                                     setlikedPostData={setlikedPostData}
-                                                    setPostData={setPostData} />} />
+                                                    setPostData={setPostData} 
+                                                    collectionsData={collectionsData}/>} />
           <Route path="/likedpage" element={<LikedPage 
                                                     likedPostData={likedPostData}
                                                     setlikedPostData={setlikedPostData} />}/>

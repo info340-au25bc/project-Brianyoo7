@@ -22,16 +22,16 @@ function CollectionCard(props) {
   };
 
   return (
-    <div className="post" onClick={handleClick}>
+    <div className="collection-post" onClick={handleClick}>
       <div className="post-image-container">
         <img className="post-image" src={props.image} alt={props.alt} />
       </div>
       <p className="post-title">{props.title}</p>
       <div className="card-actions">
         <Link to={`/editcollection/${props.id}`}>
-          <button>Edit</button>
+          <button className="collections-edit">Edit</button>
         </Link>
-        <button onClick={handleDelete} className="delete-btn">
+        <button onClick={handleDelete} className="collections-edit">
           Delete
         </button>
       </div>
