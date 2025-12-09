@@ -30,11 +30,11 @@ function PostCard(props) {
     };
 
     const handleDropdownClick = (e) => {
-        e.stopPropagation(); // Prevent card click
+        e.stopPropagation();
     };
 
     const handleSelectChange = (e) => {
-        e.stopPropagation(); // Prevent card click
+        e.stopPropagation();
         setSelectedCollection(e.target.value);
     };
 

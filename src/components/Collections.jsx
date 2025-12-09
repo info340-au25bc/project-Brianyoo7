@@ -17,31 +17,31 @@ function CollectionsMain({ collectionsData }) {
  
   return (
     <>
-    <div className="page-container">
       <NavBar navLinks={navLinksArray} />
       <Header summary={headerText} />
-      <section className="main-feed">
-          <Link className="collection-btn" to="/newcollection">
-          New Collection
-          </Link>
-        <div className="collection-layout">
-          {collectionsData.length === 0 ? (
-            <p>No collections yet. Create one to get started!</p>
-          ) : (
-            collectionsData.map((col) => (
-              <CollectionCard
-                key={col.id}
-                id={col.id}
-                title={col.title}
-                image={col.image}
-                alt={col.alt}
-              />
-            ))
-          )}
-        </div>
-      </section>
+      <main className="main-feed">
+        <section className="main-feed">
+            <Link className="collection-btn" to="/newcollection">
+            New Collection
+            </Link>
+          <div className="collection-layout">
+            {collectionsData.length === 0 ? (
+              <p>No collections yet. Create one to get started!</p>
+            ) : (
+              collectionsData.map((col) => (
+                <CollectionCard
+                  key={col.id}
+                  id={col.id}
+                  title={col.title}
+                  image={col.image}
+                  alt={col.alt}
+                />
+              ))
+            )}
+          </div>
+        </section>
+      </main>
       <Footer />
-    </div>
     </>
   );
 }

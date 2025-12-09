@@ -27,6 +27,21 @@ export default function CollectionsPostCard(props) {
     });
   };
 
+  const handleRemove = async (e) => {
+    e.stopPropagation();
+    const db = getDatabase();
+    const collectionRef = ref(db, "collections/" + props.collectionId);
+
+    const updatedPosts = props.currentPosts.filter(
+      (postId, idx) => idx !== props.index
+    );
+
+    await update(collectionRef, {
+      ...props.collectionData,
+      posts: updatedPosts,
+    });
+  };
+
   return (
     <div className="collection-post-card">
         <div className="post-image-container" onClick={handleViewClick}>
@@ -42,6 +57,7 @@ export default function CollectionsPostCard(props) {
                 <button disabled={props.index === props.totalPosts - 1} onClick={() => handleMove("down")}>
                     ↓ Move Down
                 </button>
+                <button onClick={handleRemove}>✖ Remove</button>
             </div>
         </div>
     </div>

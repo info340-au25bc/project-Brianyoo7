@@ -229,6 +229,43 @@ main {
   padding: 30px;
 }
 
+.add-to-collection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;                /* space between select and button */
+  margin: 1.5rem 0;
+}
+
+.add-to-collection select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.add-to-collection select:focus {
+  border-color: #4169E1;    /* highlight with your app’s blue */
+}
+
+.add-to-collection button {
+  background-color: #4169E1;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-to-collection button:hover {
+  background-color: #3154b7; /* darker blue on hover */
+}
+
 .form-column {
   display: flex;
   flex-direction: column;

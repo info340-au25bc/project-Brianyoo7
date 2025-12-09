@@ -52,23 +52,6 @@ function PostCardFullView(props) {
         navigate("/postcreation/" + `${selectedPostData.id}`);
     }
 
-    const handleAddToCollection = async (e) => {
-        e.stopPropagation();
-        if (!selectedCollection) return;
-
-        const collectionRef = ref(db, "collections/" + selectedCollection);
-        const collection = props.collectionsData?.find((c) => c.id === selectedCollection);
-        if (!collection) return;
-
-        const updatedPosts = collection.posts
-        ? collection.posts.includes(selectedPostData.id)
-            ? collection.posts
-            : [...collection.posts, selectedPostData.id]
-        : [selectedPostData.id];
-
-        await update(collectionRef, { ...collection, posts: updatedPosts });
-    };
-
     return (
         <>
             <NavBar navLinks={navLinksArray} />
@@ -92,22 +75,6 @@ function PostCardFullView(props) {
                         <button className="edit-post-btn-style" type="button" onClick={handleEditClick}>Edit Post</button>
                         <button className="delete-post-btn-style" type="button" onClick={handleDeleteClick}>Delete Post</button>
 
-                        <div className="add-to-collection" onClick={(e) => e.stopPropagation()}>
-                            <p>Add to Collection:</p>
-                            <select
-                                value={props.sselectedCollection}
-                                onChange={(e) => setSelectedCollection(e.target.value)}
-                            >
-                                <option value="">Select Collection</option>
-                                {Array.isArray(props.collectionsData) &&
-                                props.collectionsData.map((c) => (
-                                    <option key={c.id} value={c.id}>
-                                    {c.title}
-                                    </option>
-                                ))}
-                            </select>
-                            <button onClick={handleAddToCollection}>Add</button>
-                            </div>
                     </div>
                 </div>
             </main>

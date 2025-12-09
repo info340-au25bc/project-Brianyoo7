@@ -13,7 +13,6 @@ function CollectionCreation() {
   const headerText = "Create Your Collection Here";
   const navigate = useNavigate();
 
-  // states for collection
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [alt, setAlt] = useState("");
@@ -21,10 +20,8 @@ function CollectionCreation() {
   const [careerType, setCareerType] = useState("");
   const [transitionType, setTransitionType] = useState("");
 
-  // states for posts inside collection
   const [posts, setPosts] = useState([]);
 
-  // dropzone for collection image
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length > 0) {
       setImage(acceptedFiles[0]);
@@ -32,7 +29,6 @@ function CollectionCreation() {
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
-  // add a new post inline
   const handleAddPost = () => {
     const newPost = {
       id: Date.now().toString(),
@@ -46,24 +42,20 @@ function CollectionCreation() {
     setPosts([...posts, newPost]);
   };
 
-  // update post inline
   const handleUpdatePost = (postId, field, value) => {
     setPosts((prev) =>
       prev.map((p) => (p.id === postId ? { ...p, [field]: value } : p))
     );
   };
 
-  // remove post
   const handleRemovePost = (postId) => {
     setPosts((prev) => prev.filter((p) => p.id !== postId));
   };
 
-  // discard handler
   const handleDiscard = () => {
     navigate("/collections");
   };
 
-  // submit handler
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -207,7 +199,6 @@ function CollectionCreation() {
               </select>
             </div>
 
-            {/* ✅ Inline post management */}
             <section className="edit-posts-section">
               <h3>Posts in this Collection</h3>
               {posts.map((post) => (
