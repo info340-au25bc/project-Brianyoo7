@@ -18,9 +18,7 @@ main {
   flex: 1;
 }
 
-@media (min-width: 0) {
-    /* Styling for hamburger nav menu */
-  .hamburger {
+.hamburger {
     width: 2rem;
     height: 2rem;
     display: flex;
@@ -64,8 +62,6 @@ main {
 .dropdown-links li {
   display: block;
   padding-right: 1rem;
-}
-
 }
 
 body {
@@ -840,7 +836,7 @@ footer a:hover {
 }
 
 /* Responsive Design for the large screen */
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
 
   nav > ul:not(.dropdown-links) {
     display: flex;
